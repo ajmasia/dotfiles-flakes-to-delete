@@ -2,7 +2,7 @@
 let
   username = "ajmasia";
   homeDirectory = "/home/${username}";
-  # configHome = "${homeDirectory}/.config";
+  configHome = "${homeDirectory}/.config";
 in
 with pkgs; {
   home = {
@@ -14,11 +14,21 @@ with pkgs; {
       variant = "altgr-intl";
     };
 
-    # User installed packages
+    # User packages
     packages = (import ./packages.nix) pkgs;
+
     # Files to link to the user home
     file = (import ./files.nix) { };
   };
 
-  programs = (import ./programs.nix) { pkgs = pkgs; lib = lib; builtins = builtins; };
+  xdg = {
+    inherit configHome;
+    enable = true;
+  };
+
+  imports = builtins.concatMap import [
+    ./programs
+  ];
+
+  # programs = (import ./programs.nix) { pkgs = pkgs; lib = lib; builtins = builtins; };
 }
