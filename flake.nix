@@ -26,32 +26,15 @@
     in
     {
       homeConfigurations = (
-        import ./users/users-conf.nix {
+        import ./home/home-conf.nix {
           inherit system inputs;
         }
       );
 
-      nixosConfigurations = {
-        drogon = lib.nixosSystem {
-          inherit system;
-
-          specialArgs = {
-            inherit inputs;
-          };
-
-          modules = [
-            ({ pkgs, ... }: {
-              # Make ready for nix flakes
-              nix = {
-                extraOptions = "experimental-features = nix-command flakes";
-                package = pkgs.nixFlakes;
-                registry.nixpkgs.flake = nixpkgs;
-              };
-            })
-
-            ./system/drogon/configuration.nix
-          ];
-        };
-      };
+      nixosConfigurations = (
+        import ./nixos/nixos-conf.nix {
+          inherit system inputs;
+        }
+      );
     };
 }

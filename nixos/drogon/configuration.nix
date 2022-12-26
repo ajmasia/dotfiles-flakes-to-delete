@@ -12,6 +12,15 @@
     ];
 
   # Make ready for nix flakes
+  nix = {
+
+    package = pkgs.nixFlakes;
+    registry.nixpkgs.flake = nixpkgs;
+
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
+  };
 
   # Bootloader.
   boot.kernel.sysctl."kernel,sysrq" = 1;
