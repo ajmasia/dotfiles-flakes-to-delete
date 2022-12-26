@@ -59,4 +59,5 @@ in
   ./alacritty
   ./starship
   ./vim
+  ./rofi
 ]
