@@ -7,6 +7,7 @@ in
 with builtins; {
   home-manager = {
     enable = true;
+    useGlobalPkgs = true;
   };
 
   bash = {
