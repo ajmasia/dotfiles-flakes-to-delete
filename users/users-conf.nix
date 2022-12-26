@@ -1,5 +1,6 @@
-{ system, nixpkgs, home-manager, ... }:
+{ system, inputs, ... }:
 
+with inputs;
 {
   ajmasia = home-manager.lib.homeManagerConfiguration rec {
     pkgs = import nixpkgs {

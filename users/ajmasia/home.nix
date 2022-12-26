@@ -20,22 +20,5 @@ with pkgs; {
     file = (import ./files.nix) { };
   };
 
-  # xsession = {
-  #   enable = true;
-
-  #   windowManager = {
-  #     xmonad = {
-  #       enable = true;
-  #       config = ./dotfiles/xmonad/xmonad.hs;
-  #       enableContribAndExtras = true;
-  #     };
-  #   };
-
-  #   initExtra = ''
-  #     # Welcome sound
-  #     # Set background
-  #   '';
-  # };
-
   programs = (import ./programs.nix) { pkgs = pkgs; lib = lib; builtins = builtins; };
 }

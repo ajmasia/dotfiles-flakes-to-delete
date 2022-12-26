@@ -161,7 +161,6 @@
     vim
     wget
     ryzenadj
-    home-manager
 
     # Browsers
     firefox

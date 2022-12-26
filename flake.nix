@@ -27,7 +27,7 @@
     {
       homeConfigurations = (
         import ./users/users-conf.nix {
-          inherit system nixpkgs home-manager;
+          inherit system inputs;
         }
       );
 
@@ -40,8 +40,6 @@
           };
 
           modules = [
-            home-manager.nixosModules.home-manager
-
             ({ pkgs, ... }: {
               # Make ready for nix flakes
               nix = {
@@ -49,11 +47,9 @@
                 package = pkgs.nixFlakes;
                 registry.nixpkgs.flake = nixpkgs;
               };
-
-              home-manager.useGlobalPkgs = true;
             })
 
-            ./system/configuration.nix
+            ./system/drogon/configuration.nix
           ];
         };
       };

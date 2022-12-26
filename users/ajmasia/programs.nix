@@ -5,6 +5,10 @@ let
   HOME_PATH = builtins.getEnv "HOME";
 in
 with builtins; {
+  home-manager = {
+    enable = true;
+  };
+
   bash = {
     enable = true;
 
@@ -138,7 +142,7 @@ with builtins; {
       };
     };
   };
-  
+
   starship = {
     enable = true;
     enableBashIntegration = true;
