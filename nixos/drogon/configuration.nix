@@ -91,8 +91,10 @@
     };
 
     udev = {
-      # Demon needed for gnome app indicator
-      packages = with pkgs; [ gnome.gnome-settings-daemon ];
+      packages = with pkgs; [
+        gnome.gnome-settings-daemon # Demon needed for gnome app indicator
+        pkgs.yubikey-personalization # Needed for yubikey apps
+      ];
     };
 
     # Enable CUPS to print documents.
@@ -118,7 +120,7 @@
     # Midelware to access a smart card using SCard API (PC/SC)
     pcscd = {
       enable = true;
-    };
+    }; # Yubikey smart card mode (CCID) and OTP mode (udev)
 
   };
 

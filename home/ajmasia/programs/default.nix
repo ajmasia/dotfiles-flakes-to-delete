@@ -60,4 +60,5 @@ in
   ./starship
   ./vim
   ./rofi
+  ./yubikey
 ]
