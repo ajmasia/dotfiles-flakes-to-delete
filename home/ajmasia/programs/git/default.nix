@@ -1,5 +1,7 @@
 { pkgs, ... }:
 let
+  HOME_PATH = builtins.getEnv "HOME";
+
   gitConfig = {
     core = {
       excludesfile = "${HOME_PATH}/.gitignore";
