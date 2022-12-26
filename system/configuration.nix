@@ -145,6 +145,12 @@
     extraGroups = [ "networkmanager" "wheel" ];
   };
 
+  users.extraUsers.ajmasia = {
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHcSYXvou2J97TsKIHc3BTwZW7ZBcFGX5AVQhFc6yDZ5 antoniojosemasia@gmail.com"
+    ];
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
