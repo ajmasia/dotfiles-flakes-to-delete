@@ -25,6 +25,7 @@ with pkgs; {
   imports = [ (import ./xdg { inherit homeDirectory; }) ]
     ++ builtins.concatMap import [
     ./programs
+    ./services
     ./window-manager
   ];
 }

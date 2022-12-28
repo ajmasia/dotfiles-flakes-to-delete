@@ -6,10 +6,12 @@ import XMonad.Util.Ungrab
 import XMonad.Layout.Spacing      ( spacing )
 import XMonad.Layout.Gaps         ( gaps )
 
+import Graphics.X11.Types
+
 -- Main vars
 myModMask    = mod4Mask
 myTerminal   = "alacritty"
-myLauncher  = "rofi -show drun -theme ~/.config/rofi/themes/launcher.rasi &"
+myLauncher  = "rofi -show drun &"
 
 -- My layouts
 myLayout = tiled ||| Mirror tiled ||| Full
@@ -22,7 +24,7 @@ myLayout = tiled ||| Mirror tiled ||| Full
 -- My KeyBindings
 myKeyBindings :: [((KeyMask, KeySym), X())]
 myKeyBindings =
-  [ ((myModMask, xK_e), spawn myLauncher) ]
+  [ ((myModMask, xK_space), spawn myLauncher) ]
 
 -- Main config
 myConfig = def 

@@ -29,6 +29,9 @@ with pkgs; [
   # CLIs
   telegram-cli        # Command-line interface for Telegram
 
+  # Browsers
+  google-chrome       # A freeware web browser developed by Google
+
 
   # Fonts
   nerdfonts
