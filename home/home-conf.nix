@@ -2,7 +2,7 @@
 
 with inputs;
 {
-  ajmasia = home-manager.lib.homeManagerConfiguration rec {
+  ajmasia = home-manager.lib.homeManagerConfiguration {
     pkgs = import nixpkgs {
       inherit system;
 

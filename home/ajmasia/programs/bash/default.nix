@@ -1,7 +1,6 @@
 { ... }:
-let
-  HOME_PATH = builtins.getEnv "HOME";
 
+let
   initExtraConfig = ''
     # Init extra config
     export PATH="$HOME/.local/bin:$PATH"
@@ -10,7 +9,6 @@ let
   profileExtraConfig = ''
     # Profile extra config
   '';
-
 in
 {
   programs.bash = {

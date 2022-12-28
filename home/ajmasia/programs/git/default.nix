@@ -1,10 +1,10 @@
 { pkgs, ... }:
-let
-  HOME_PATH = builtins.getEnv "HOME";
 
+let
+  homeDirectory = builtins.getEnv "HOME";
   gitConfig = {
     core = {
-      excludesfile = "${HOME_PATH}/.gitignore";
+      excludesfile = "${homeDirectory}/.gitignore";
     };
 
     init = {
@@ -18,9 +18,9 @@ let
 in
 {
   home.packages = with pkgs.gitAndTools; [
-    diff-so-fancy # git diff with colors
-    hub # github command-line client
-    tig # diff and commit view
+    diff-so-fancy     # git diff with colors
+    hub               # github command-line client
+    tig               # diff and commit view
   ];
 
   programs.git = {

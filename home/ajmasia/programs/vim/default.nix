@@ -1,4 +1,5 @@
 { pkgs, ... }:
+
 let
   vimConfig = ''
     set smarttab
