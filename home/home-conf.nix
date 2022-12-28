@@ -1,7 +1,11 @@
 { system, inputs, ... }:
 
+let
+  userConfigPath = "drogon-ajmasia";
+in 
 with inputs;
 {
+  # drogon-ajmasia
   ajmasia = home-manager.lib.homeManagerConfiguration {
     pkgs = import nixpkgs {
       inherit system;
@@ -14,12 +18,13 @@ with inputs;
       };
 
       overlays = [
-        (import ./ajmasia/overlays/bin.nix)
+        (import ./${userConfigPath}/overlays/bin.nix)
       ];
     };
 
     modules = [
-      ./ajmasia/home.nix
+      ./${userConfigPath}/home.nix
     ];
   };
 }
+

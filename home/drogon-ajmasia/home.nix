@@ -14,10 +14,10 @@ with pkgs; {
     };
 
     # User packages
-    packages = (import ./packages.nix) pkgs;
+    packages = (import ./packages) pkgs;
 
     # Files to link to the user home
-    file = (import ./files.nix) { };
+    # file = (import ./files) { };
 
     stateVersion = "22.11";
   };
@@ -25,6 +25,7 @@ with pkgs; {
   imports = [ (import ./xdg { inherit homeDirectory; }) ]
     ++ builtins.concatMap import [
     ./programs
+    ./window-manager
   ];
 }
 
