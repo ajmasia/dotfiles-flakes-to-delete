@@ -69,7 +69,7 @@
         #   enable = true;
         # };
 
-        defaultSession = "none+xmonad";
+        defaultSession = "none+bspwm";
       };
 
       desktopManager = {
@@ -81,9 +81,12 @@
 
       windowManager = {
         # Enable the XMONAD Desktop Manager
-        xmonad = {
+        # xmonad = {
+        #   enable = true;
+        #   enableContribAndExtras = true;
+        # };
+        bspwm = {
           enable = true;
-          enableContribAndExtras = true;
         };
       };
 
