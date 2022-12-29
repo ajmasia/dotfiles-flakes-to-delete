@@ -1,4 +1,4 @@
 [
-  # ./xmonad
-  ./bspwm
+  ./xmonad
+  # ./bspwm
 ]

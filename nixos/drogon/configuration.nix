@@ -69,7 +69,7 @@
         #   enable = true;
         # };
 
-        defaultSession = "none+bspwm";
+        defaultSession = "none+xmonad";
       };
 
       desktopManager = {
@@ -80,14 +80,16 @@
       };
 
       windowManager = {
-        # Enable the XMONAD Desktop Manager
-        # xmonad = {
-        #   enable = true;
-        #   enableContribAndExtras = true;
-        # };
-        bspwm = {
+        # Enable the Xmonad Desktop Manager
+        xmonad = {
           enable = true;
+          enableContribAndExtras = true;
         };
+
+        # Enable the Bspwm Desktop Manager
+        # bspwm = {
+        #   enable = true;
+        # };
       };
 
       # Configure keymap in X11
