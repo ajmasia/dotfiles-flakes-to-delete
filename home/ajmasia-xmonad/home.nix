@@ -24,10 +24,10 @@ with pkgs; {
 
   imports = builtins.concatMap import [
     ./window-manager
-    ./xdg
     ./ui
-    ./services
+    ./xdg
     ./programs
+    ./services
   ];
 }
 

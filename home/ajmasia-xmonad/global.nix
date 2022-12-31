@@ -1,11 +1,11 @@
 let
   userName = "ajmasia";
-  homeDirectory = "/HOME/${userName}";
+  homeDirectory = "/home/${userName}";
   configHome = "${homeDirectory}/.config";
 in
 {
   userName = userName;
   homeDirectory = homeDirectory;
   configHome = configHome;
-  walppaper = "wallpaper_004.jpg";
+  wallpaper = "wallpaper_004.jpg";
 }
