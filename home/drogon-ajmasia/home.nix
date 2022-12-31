@@ -16,8 +16,8 @@ with pkgs; {
     # User packages
     packages = (import ./packages) pkgs;
 
-    # Files to link to the user home
-    # file = (import ./files) { };
+    #  User aaets
+    file = (import ./file) { };
 
     stateVersion = "22.11";
   };
