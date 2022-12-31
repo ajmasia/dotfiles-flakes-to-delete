@@ -3,8 +3,7 @@ import XMonad
 import XMonad.Util.EZConfig
 import XMonad.Util.Ungrab
 
-import XMonad.Layout.Spacing      ( spacing )
-import XMonad.Layout.Gaps         ( gaps )
+import XMonad.Layout.Spacing
 
 import Graphics.X11.Types
 
@@ -13,8 +12,10 @@ myModMask    = mod4Mask
 myTerminal   = "alacritty"
 myLauncher  = "rofi -show drun &"
 
+addGap = smartSpacing 8
+
 -- My layouts
-myLayout = tiled ||| Mirror tiled ||| Full
+myLayout = addGap $ tiled ||| Mirror tiled ||| Full
   where
     tiled   = Tall nmaster delta ratio
     nmaster = 1      -- Default number of windows in the master pane
@@ -33,7 +34,7 @@ myConfig = def
   , terminal           = myTerminal   -- Default terminal
   , focusFollowsMouse  = True
   , clickJustFocuses   = False
-  , borderWidth        = 2
+  , borderWidth        = 0
   , normalBorderColor  = "#dddddd"    -- light gray (default)
   , focusedBorderColor = "#1681f2"    -- blue
   } `additionalKeys` myKeyBindings
