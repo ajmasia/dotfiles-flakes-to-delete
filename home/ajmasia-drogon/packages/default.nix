@@ -32,6 +32,8 @@ with pkgs; [
   # Browsers
   google-chrome       # A freeware web browser developed by Google
 
+  # UI
+  feh                 # A light-weight image viewer
 
   # Fonts
   nerdfonts

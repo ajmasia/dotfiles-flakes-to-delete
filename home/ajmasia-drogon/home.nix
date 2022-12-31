@@ -22,11 +22,13 @@ with pkgs; {
     stateVersion = "22.11";
   };
 
-  imports = [ (import ./xdg { inherit homeDirectory; }) ]
-    ++ builtins.concatMap import [
-    ./programs
-    ./services
+  imports = [
+    (import ./xdg { inherit homeDirectory; })
+  ]
+  ++ builtins.concatMap import [
     ./window-manager
+    ./services
+    ./programs
   ];
 }
 
