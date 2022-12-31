@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 let
-  username = "ajmasia";
-  homeDirectory = "/home/${username}";
+  username = (import ./global.nix).userName;
+  homeDirectory = (import ./global.nix).homeDirectory;
 in
 with pkgs; {
   home = {
@@ -22,11 +22,10 @@ with pkgs; {
     stateVersion = "22.11";
   };
 
-  imports = [
-    (import ./xdg { inherit homeDirectory; })
-  ]
-  ++ builtins.concatMap import [
+  imports = builtins.concatMap import [
     ./window-manager
+    ./xdg
+    ./ui
     ./services
     ./programs
   ];

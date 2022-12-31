@@ -1,5 +1,6 @@
-{ homeDirectory, ... }:
-
+let
+  homeDirectory = (import ../../global.nix).homeDirectory;
+in
 {
   # Desktop entries
   "com.yubico.authenticator" = {

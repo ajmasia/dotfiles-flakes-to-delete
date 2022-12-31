@@ -1,5 +1,7 @@
 { pkgs, ... }:
-
+let
+  wallpaper = (import ../../global.nix).wallpaper;
+in
 {
   services.grobi = {
     enable = true;
@@ -17,7 +19,7 @@
           primary = MAIN_MONITOR;
           atomic = true;
           execute_after = [
-            "${pkgs.feh}/bin/feh --bg-fill ~/.local/share/wallpapers/wallpaper_004.jpg"
+            "${pkgs.feh}/bin/feh --bg-fill ~/.local/share/wallpapers/${wallpaper}"
           ];
         }
         {
@@ -28,7 +30,7 @@
           primary = MAIN_MONITOR;
           atomic = true;
           execute_after = [
-            "${pkgs.feh}/bin/feh --bg-fill ~/.local/share/wallpapers/wallpaper_004.jpg"
+            "${pkgs.feh}/bin/feh --bg-fill ~/.local/share/wallpapers/${wallpaper}"
           ];
         }
       ];

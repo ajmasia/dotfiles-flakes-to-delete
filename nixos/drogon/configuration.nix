@@ -65,19 +65,19 @@
 
       displayManager = {
         # Enable the GNOME Display Manager
-        # gdm = {
-        #   enable = true;
-        # };
+        gdm = {
+          enable = true;
+        };
 
         defaultSession = "none+xmonad";
       };
 
-      desktopManager = {
-        # Enable the GNOME Desktop Manager
-        gnome = {
-          enable = true;
-        };
-      };
+      # desktopManager = {
+      #   # Enable the GNOME Desktop Manager
+      #   gnome = {
+      #     enable = true;
+      #   };
+      # };
 
       windowManager = {
         # Enable the Xmonad Desktop Manager
