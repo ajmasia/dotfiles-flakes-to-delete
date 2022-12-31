@@ -1,7 +1,7 @@
 { system, inputs, ... }:
 
 let
-  userConfigPath = "ajmasia-drogon";
+  ajmasiaConfigPath = "ajmasia-xmonad";
 in 
 with inputs;
 {
@@ -18,12 +18,12 @@ with inputs;
       };
 
       overlays = [
-        (import ./${userConfigPath}/overlays/bin.nix)
+        (import ./${ajmasiaConfigPath}/overlays/bin.nix)
       ];
     };
 
     modules = [
-      ./${userConfigPath}/home.nix
+      ./${ajmasiaConfigPath}/home.nix
     ];
   };
 }

@@ -1,5 +1,4 @@
 [
   ./grobi
   ./picom
-  # ./sxhkd
 ]
