@@ -6,6 +6,8 @@ import XMonad.Util.Run(spawnPipe)
 
 import XMonad.Layout.Spacing
 
+import XMonad.Hooks.EwmhDesktops (ewmh)
+
 -- Variables
 myModMask    = mod4Mask
 myTerminal   = "alacritty"
@@ -45,4 +47,6 @@ myConfig = def
 main :: IO ()
 main = do
   xmproc <- spawnPipe "xmobar"
-  xmonad $ myConfig
+  xmonad 
+    .ewmh
+    $ myConfig

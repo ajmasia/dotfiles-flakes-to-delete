@@ -2,7 +2,7 @@
 
 {
   programs.xmobar = {
-    enable = false;
+    enable = true;
 
     extraConfig = import ./configrc; 
   };
