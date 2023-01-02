@@ -7,4 +7,5 @@
   ./vim
   ./rofi
   ./yubikey
+  ./xmobar
 ]

@@ -2,15 +2,15 @@ import XMonad
 
 import XMonad.Util.EZConfig
 import XMonad.Util.Ungrab
+import XMonad.Util.Run(spawnPipe)
 
 import XMonad.Layout.Spacing
 
-import Graphics.X11.Types
-
--- Main vars
+-- Variables
 myModMask    = mod4Mask
 myTerminal   = "alacritty"
 myLauncher  = "rofi -show drun &"
+myBrowser = "firefox"
 
 addGap = smartSpacing 8
 
@@ -25,7 +25,9 @@ myLayout = addGap $ tiled ||| Mirror tiled ||| Full
 -- My KeyBindings
 myKeyBindings :: [((KeyMask, KeySym), X())]
 myKeyBindings =
-  [ ((myModMask, xK_space), spawn myLauncher) ]
+  [ ((myModMask, xK_space), spawn myLauncher)
+  , ((myModMask .|. controlMask , xK_b), spawn myBrowser)
+  ]
 
 -- Main config
 myConfig = def 
@@ -41,4 +43,6 @@ myConfig = def
 
 
 main :: IO ()
-main = xmonad $ myConfig
+main = do
+  xmproc <- spawnPipe "xmobar"
+  xmonad $ myConfig

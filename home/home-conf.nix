@@ -1,7 +1,7 @@
 { system, inputs, ... }:
 
 let
-  ajmasiaConfigPath = "ajmasia-xmonad";
+  ajmasiaConfigPath = "drogon-ajmasia";
 in 
 with inputs;
 {
