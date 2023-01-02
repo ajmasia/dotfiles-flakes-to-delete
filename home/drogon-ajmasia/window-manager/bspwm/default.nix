@@ -11,8 +11,10 @@
       enable = true;
 
       settings = {
-        "border_width" = 0;
-        "window_gap" = 8;
+        "border_width" = 2;
+        "focused_border_color" = "#ffe613";
+        # "normal_border_color" = "#ffffff";
+        "window_gap" = 0;
         "ignore_ewmh_struts" = "";
         "focus_follows_pointer" = true;
         "remove_disabled_monitors" = true;
