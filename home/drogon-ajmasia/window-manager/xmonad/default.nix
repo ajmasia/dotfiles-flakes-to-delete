@@ -14,8 +14,8 @@
     windowManager.xmonad = {
       enable = true;
 
-      enableContribAndExtras = true;
       config = ./config.hs;
+      enableContribAndExtras = true;
     };
   };
 }

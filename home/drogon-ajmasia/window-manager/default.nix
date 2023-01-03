@@ -1,3 +1,4 @@
 [
   ./bspwm
+  ./xmonad
 ]

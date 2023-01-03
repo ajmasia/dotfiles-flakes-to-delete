@@ -34,6 +34,7 @@ with pkgs; [
 
   # UI
   feh                 # A light-weight image viewer
+  dmenu               # A generic, highly customizable, and efficient menu for the X Window System
 
   # Fonts
   nerdfonts

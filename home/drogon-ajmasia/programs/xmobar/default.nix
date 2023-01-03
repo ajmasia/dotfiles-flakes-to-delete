@@ -4,6 +4,6 @@
   programs.xmobar = {
     enable = true;
 
-    extraConfig = import ./configrc; 
+    extraConfig = builtins.readFile ./configrc; 
   };
 }
