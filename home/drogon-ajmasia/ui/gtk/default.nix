@@ -13,6 +13,11 @@
       name = "Papirus-Dark";
       package = papirus-icon-theme;
     };
+
+    # cursorTheme = {
+    #   name = "capitaine-cursors";
+    #   package = capitaine-cursors;
+    # };
   };
 }
 

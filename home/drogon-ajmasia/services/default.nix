@@ -2,4 +2,5 @@
   ./grobi
   ./picom
   ./sxhkd
+  ./trayer
 ]

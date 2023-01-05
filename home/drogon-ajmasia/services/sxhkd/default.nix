@@ -2,7 +2,7 @@
 
 {
   services.sxhkd = {
-    enable = true;
+    enable = false;
 
     keybindings = import ./keybindings.nix;
   };

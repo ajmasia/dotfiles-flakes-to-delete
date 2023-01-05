@@ -35,9 +35,14 @@ with pkgs; [
   # UI
   feh                 # A light-weight image viewer
   dmenu               # A generic, highly customizable, and efficient menu for the X Window System
+  yad                 # GUI dialog tool for shell scripts
+  xdotool             # Fake keyboard/mouse input, window management, and more
+  lxappearance        # Lightweight program for configuring the theme and fonts of gtk applications
+  
 
   # Fonts
   nerdfonts
+  font-awesome
 
   # Editors
   neovim
@@ -63,9 +68,9 @@ with pkgs; [
 
   # UI
   # Gnome
-  gnome.dconf-editor
+  # gnome.dconf-editor
   # Xmonad
-  xmobar              # A minimalistic status bar
+  # xmobar              # A minimalistic status bar
 
   # Comunications
   tdesktop

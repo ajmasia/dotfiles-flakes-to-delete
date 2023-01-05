@@ -92,7 +92,7 @@
 
     udev = {
       packages = with pkgs; [
-        gnome.gnome-settings-daemon # Demon needed for gnome app indicator
+        # gnome.gnome-settings-daemon # Demon needed for gnome app indicator
         pkgs.yubikey-personalization # Needed for yubikey apps
       ];
     };
@@ -177,8 +177,8 @@
     firefox
 
     # GNOME Desktop Manager extensions and tools
-    gnomeExtensions.appindicator
-    gnomeExtensions.material-shell
+    # gnomeExtensions.appindicator
+    # gnomeExtensions.material-shell
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
