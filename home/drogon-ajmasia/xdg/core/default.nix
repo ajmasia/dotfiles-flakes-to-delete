@@ -9,6 +9,13 @@ in
 
     desktopEntries = import ../desktop;
     # TODO: import mime config
+
+    configFile = {
+      "ranger" = {
+        recursive = true;
+        source = ./ranger;
+      };
+    };
   };
 }
 

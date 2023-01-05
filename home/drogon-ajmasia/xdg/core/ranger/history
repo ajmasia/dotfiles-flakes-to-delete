@@ -1,0 +1,50 @@
+set vcs_aware true
+rename Documents
+rename BladeRunner.gif
+rename 
+cd .config/ranger/
+search r
+scout -ftsea rc
+cd .local
+search fo
+scout -ftsea fo
+cd 
+mkdir genially-monorepo
+mkdir old
+rename old
+rename .env
+search dock
+[
+shell inkscape %3
+shell inkscape %f
+cd  .bash_it
+scout -ftsea doc
+scout -ftsea pi
+scout -ftsea scr
+search pro
+scout -ftsea m
+scout -ftsea app
+rename node_modules
+cd .xmobar
+cd /
+open_with 
+cd .config
+search sx
+scout -ftsea pr
+scout -ftsea g
+scout -ftsea dow
+rename genially.png
+search proje
+shell vim %s
+shell vi %s
+search defla
+search .doom
+shell mpv %f
+delete
+search java
+bulkrename 
+search .icons
+search xmobarrc
+shells
+shell 
+shelsls
