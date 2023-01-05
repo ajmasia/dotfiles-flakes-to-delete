@@ -33,9 +33,9 @@ with pkgs; {
   fonts.fontconfig.enable = true;
 
   imports = builtins.concatMap import [
+    ./xdg
     ./window-manager
     ./ui
-    ./xdg
     ./programs
     ./services
   ];

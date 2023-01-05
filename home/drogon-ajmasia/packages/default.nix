@@ -29,6 +29,10 @@ with pkgs; [
   # CLIs
   telegram-cli        # Command-line interface for Telegram
 
+  # File system management
+  ranger              # File manager with minimalistic curses interface
+  pcmanfm             # File manager with GTK interface
+
   # Browsers
   firefox             # A web browser built from Firefox source tree
   google-chrome       # A freeware web browser developed by Google
@@ -39,15 +43,14 @@ with pkgs; [
   yad                 # GUI dialog tool for shell scripts
   xdotool             # Fake keyboard/mouse input, window management, and more
   lxappearance        # Lightweight program for configuring the theme and fonts of gtk applications
-  
 
   # Fonts
-  nerdfonts
-  font-awesome
+  nerdfonts           # Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts 
+  font-awesome        # Font Awesome - OTF font
 
   # Editors
-  neovim
-  vscode
+  neovim              # Vim text editor fork focused on extensibility and agility
+  vscode              # Open source source code editor developed by Microsoft for Windows, Linux and macOS 
 
   # Code builders, copilers & interpreters
   nodejs-16_x         # Node.js interpreter
@@ -67,16 +70,10 @@ with pkgs; [
   _1password-gui      # Multi-platform password manager
   _1password          # 1Password command-line tool
 
-  # UI
-  # Gnome
-  # gnome.dconf-editor
-  # Xmonad
-  # xmobar              # A minimalistic status bar
-
   # Comunications
-  tdesktop
-  slack
-  discord
+  tdesktop            # Telegram Desktop messaging app
+  slack               # Desktop client for Slack
+  discord             # All-in-one cross-platform voice and text chat for gamers
 
   # Multimedia
   spotify

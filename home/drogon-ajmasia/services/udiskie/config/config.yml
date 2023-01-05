@@ -1,0 +1,9 @@
+icon_names:
+  media:    [drive-removable-media]
+  eject:    [media-eject]
+  unmount:  [drive-optical]
+  detach:   [system-shutdown-symbolic]
+  losetup:  [drive-removable-media]
+  mount:    [drive-removable-media]
+
+
