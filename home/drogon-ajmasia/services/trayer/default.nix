@@ -9,16 +9,14 @@
       widthtype = "request";
 
       distancefrom = "top";
-      distance = 5;
+      distance = 4;
       align = "right";
       edge = "top";
 
-      height = 24;
-      width = 6;
-      margin = 10;
+      margin = 260;
 
       transparent = true;
-      alpha = 50;
+      alpha = 0;
       tint = "0x282c34";
     };
   };

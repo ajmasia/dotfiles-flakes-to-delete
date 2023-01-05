@@ -30,6 +30,7 @@ with pkgs; [
   telegram-cli        # Command-line interface for Telegram
 
   # Browsers
+  firefox             # A web browser built from Firefox source tree
   google-chrome       # A freeware web browser developed by Google
 
   # UI

@@ -7,7 +7,7 @@ import qualified XMonad.StackSet as W
 
     -- Actions
 import XMonad.Actions.CopyWindow (kill1)
-import XMonad.Actions.CycleWS (Direction1D(..), moveTo, shiftTo, WSType(..), nextScreen, prevScreen)
+import XMonad.Actions.CycleWS (Direction1D(..), moveTo, shiftTo, WSType(..), nextScreen, prevScreen, nextWS, prevWS)
 import XMonad.Actions.GridSelect
 import XMonad.Actions.MouseResize
 import XMonad.Actions.Promote
@@ -124,6 +124,7 @@ myStartupHook = do
   -- -- spawnOnce "feh --randomize --bg-fill /usr/share/backgrounds/dtos-backgrounds/*"  -- feh set random wallpaper
   -- -- spawnOnce "nitrogen --restore &"   -- if you prefer nitrogen to feh
   -- setWMName "LG3D"
+  spawnOnce "systemctl --user restart trayer.service"
   spawnOnce "systemctl --user restart picom.service"
 
 -- myNavigation :: TwoD a (Maybe a)
@@ -527,6 +528,11 @@ myKeys c =
   , ("M-S-8", addName "Send to workspace 8"    $ (windows $ W.shift $ myWorkspaces !! 7))
   , ("M-S-9", addName "Send to workspace 9"    $ (windows $ W.shift $ myWorkspaces !! 8))]
 
+
+  ^++^ subKeys "Go to next workspace"
+  [ ("M-<Right>", addName "Go to next workspace"    $ nextWS)
+  , ("M-<Left>", addName "Go to prev workspace "    $ prevWS)]
+
   ^++^ subKeys "Move window to WS and go there"
   [ ("M-S-<Page_Up>", addName "Move window to next WS"   $ shiftTo Next nonNSP >> moveTo Next nonNSP)
   , ("M-S-<Page_Down>", addName "Move window to prev WS" $ shiftTo Prev nonNSP >> moveTo Prev nonNSP)]
@@ -565,7 +571,6 @@ myKeys c =
 
   ^++^ subKeys "Favorite programs"
   [ ("M-<Return>", addName "Launch terminal"   $ spawn (myTerminal))
-  , ("M-b", addName "Launch web browser"       $ spawn (myBrowser))
   , ("M-M1-h", addName "Launch htop"           $ spawn (myTerminal ++ " -e htop"))]
 
   ^++^ subKeys "Monitors"
@@ -586,7 +591,8 @@ myKeys c =
 
   -- Floating windows
   ^++^ subKeys "Floating windows"
-  [ ("M-f", addName "Toggle float layout"        $ sendMessage (T.Toggle "floats"))
+  [ ("M-m", addName "Toggle float layout"        $ sendMessage (T.Toggle "FULL"))
+  , ("M-f", addName "Toggle float layout"        $ sendMessage (T.Toggle "floats"))
   , ("M-t", addName "Sink a floating window"     $ withFocused $ windows . W.sink)
   , ("M-S-t", addName "Sink all floated windows" $ sinkAll)]
 
@@ -718,6 +724,6 @@ main = do
           -- Adding # of windows on current workspace to the bar
         , ppExtras  = [windowCount] 
           -- order of things in xmobar
-        , ppOrder  = \(ws:l:t:ex) -> [ws]++["<fn=2>\xf2d2</fn>  "++l]++["<fc="++color04++"><fn=2>\xf2d0</fn></fc>  "++t]
+        , ppOrder  = \(ws:l:t:ex) -> [ws]++["<fc="++color04++"><fn=2>\xf2d2</fn>  "++l]++["</fc><fc="++color04++"><fn=2>\xf2d0</fn></fc>  "++t]
         }
     }

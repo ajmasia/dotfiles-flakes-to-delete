@@ -11,60 +11,87 @@
       ./hardware-configuration.nix
     ];
 
-  # Make ready for nix flakes
-  nix = {
-    # Flakes settings
-    package = pkgs.nixVersions.stable;
-    registry.nixpkgs.flake = inputs.nixpkgs;
+  # Bootloader.
+  boot = {
+    kernel = {
+      sysctl."kernel,sysrq" = 1;
+    };
 
-    settings = {
-      experimental-features = [ "nix-command" "flakes" ];
+    loader = {
+      timeout = 1;
+
+      systemd-boot = {
+        enable = true;
+      };
+
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
+    };
+
+    plymouth = {
+      enable = true;
     };
   };
 
-  # Bootloader.
-  boot.kernel.sysctl."kernel,sysrq" = 1;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.loader.timeout = 1;
-  boot.plymouth.enable = true;
+  # Set your time zone.
+  time = {
+    timeZone = "Europe/Madrid";
+  };
 
-  networking.hostName = "drogon"; # Define your hostname.
+  # Select internationalisation properties.
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "es_ES.UTF-8";
+      LC_IDENTIFICATION = "es_ES.UTF-8";
+      LC_MEASUREMENT = "es_ES.UTF-8";
+      LC_MONETARY = "es_ES.UTF-8";
+      LC_NAME = "es_ES.UTF-8";
+      LC_NUMERIC = "es_ES.UTF-8";
+      LC_PAPER = "es_ES.UTF-8";
+      LC_TELEPHONE = "es_ES.UTF-8";
+      LC_TIME = "es_ES.UTF-8";
+    };
+  };
+
+  networking = {
+    hostName = "drogon";
+
+    # Enable networking
+    networkmanager = {
+      enable = true;
+    };
+  };
+
+  # Other posible configurations
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  security = {
+    polkit = {
+      enable = true;
+    };
 
-  # Set your time zone.
-  time.timeZone = "Europe/Madrid";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "es_ES.UTF-8";
-    LC_IDENTIFICATION = "es_ES.UTF-8";
-    LC_MEASUREMENT = "es_ES.UTF-8";
-    LC_MONETARY = "es_ES.UTF-8";
-    LC_NAME = "es_ES.UTF-8";
-    LC_NUMERIC = "es_ES.UTF-8";
-    LC_PAPER = "es_ES.UTF-8";
-    LC_TELEPHONE = "es_ES.UTF-8";
-    LC_TIME = "es_ES.UTF-8";
+    # Enable the RealtimeKit system service, 
+    # which hands out realtime scheduling priority to user processes on demand
+    rtkit = {
+      enable = true;
+    };
   };
+
 
   services = {
     xserver = {
       # Enable the X11 windowing system.
       enable = true;
 
+      autorun = true;
+
       displayManager = {
-        # Enable the GNOME Display Manager
         gdm = {
           enable = true;
         };
@@ -73,16 +100,10 @@
       };
 
       windowManager = {
-        # Enable the Xmonad Desktop Manager
         xmonad = {
           enable = true;
           enableContribAndExtras = true;
         };
-
-        # Enable the Bspwm Desktop Manager
-        # bspwm = {
-        #   enable = true;
-        # };
       };
 
       # Configure keymap in X11
@@ -90,16 +111,34 @@
       xkbVariant = "altgr-intl";
     };
 
+    # Enable touchpad support (enabled default in most desktopManager).
+    # services.xserver.libinput.enable = true;
+
+    # Bluetooth manager
+    blueman = {
+      enable = true;
+    };
+
     udev = {
       packages = with pkgs; [
-        # gnome.gnome-settings-daemon # Demon needed for gnome app indicator
         pkgs.yubikey-personalization # Needed for yubikey apps
       ];
     };
 
-    # Enable CUPS to print documents.
+    cron = {
+      enable = false;
+    };
+
+    # DBus service that provides location information for accessing
+    geoclue2 = {
+      enable = true;
+    };
+
+    # Printing support through the CUPS daemon
     printing = {
       enable = true;
+
+      drivers = [ pkgs.hplip ];
     };
 
     pipewire = {
@@ -122,63 +161,85 @@
       enable = true;
     }; # Yubikey smart card mode (CCID) and OTP mode (udev)
 
+    # Enable daemon to to take care of the user's security credentials, such as user names and passwords
+    gnome = {
+      gnome-keyring = {
+        enable = true;
+      };
+    };
+
+    # DBus service that allows applications to query and manipulate storage devices
+    udisks2 = {
+      enable = true;
+    };
   };
 
   # Enable sound with pipewire.
-  sound.enable = true;
+  sound = {
+    enable = true;
+  };
 
   hardware = {
     pulseaudio = {
       enable = false;
+
       package = pkgs.pulseaudioFull;
     };
 
     bluetooth = {
       enable = true;
+
       settings = {
         General = {
           ControllerMode = "bredr";
         };
       };
     };
+
+    # Enable openGL drivers for x11
+    opengl = {
+      enable = true;
+    };
   };
 
-  security.rtkit.enable = true;
+  virtualisation = {
+    docker = {
+      enable = true;
+    };
+  };
 
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ajmasia = {
     isNormalUser = true;
     description = "Antonio José Masiá";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "input" "audio" ];
   };
 
-  users.extraUsers.ajmasia = {
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHcSYXvou2J97TsKIHc3BTwZW7ZBcFGX5AVQhFc6yDZ5 antoniojosemasia@gmail.com"
-    ];
+  # Make ready for nix flakes
+  nix = {
+    # Flakes settings
+    package = pkgs.nixVersions.stable;
+    registry.nixpkgs.flake = inputs.nixpkgs;
+
+    settings = {
+      experimental-features = [ "nix-command" "flakes" ];
+    };
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  # Nixpkgs config
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    # Terminal tools
-    vim
-    wget
-    ryzenadj
-
-    # Browsers
-    firefox
-
-    # GNOME Desktop Manager extensions and tools
-    # gnomeExtensions.appindicator
-    # gnomeExtensions.material-shell
+    vim         # The most popular clone of the VI editor
+    wget        # Tool for retrieving files using HTTP, HTTPS, and FTP
+    ryzenadj    # Adjust power management settings for Ryzen Mobile Processors.
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

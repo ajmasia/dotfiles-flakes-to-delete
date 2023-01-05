@@ -1,4 +1,6 @@
 [
+  ./applets
+  ./udiskie
   ./grobi
   ./picom
   ./sxhkd
