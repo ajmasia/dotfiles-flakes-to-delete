@@ -39,7 +39,7 @@ Config { font            = "Ubuntu Mono 12"
        , hideOnStart  = False
        , allDesktops  = True
        , persistent   = True
-       , iconRoot     = "/home/ajmasia/.local/share/user-icons/"  -- default: "."
+       , iconRoot     = "/home/ajmasia/.xmobar/icons"  -- default: "."
        , commands = [
                     --     -- Echos a "messages" icon in front of the notify-log output.
                     --   Run Com "echo" ["<fn=3>\xf099</fn>"] "messages" 3600
