@@ -15,6 +15,11 @@ in
         recursive = true;
         source = ./ranger;
       };
+
+      "sxiv" = {
+        recursive = true;
+        source = ./sxiv;
+      };
     };
   };
 }

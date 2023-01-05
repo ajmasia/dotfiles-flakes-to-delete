@@ -32,6 +32,7 @@ with pkgs; [
   # File system management
   ranger              # File manager with minimalistic curses interface
   pcmanfm             # File manager with GTK interface
+  sxiv                # Simple X Image Viewer
 
   # Browsers
   firefox             # A web browser built from Firefox source tree
