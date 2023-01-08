@@ -47,9 +47,9 @@ check_dependences() {
 	if ! command -v ryzenadj &>/dev/null 2>&1; then
 		printf >&2 "${RED}Error: ryzenadj could not be found\n"
 		exit 1
-  # elif ! command -v notify-send &>/dev/null 2>&1; then
-		# printf >&2 "${RED}Error: notify-send could not be found\n"
-		# exit 1
+  elif ! command -v notify-send &>/dev/null 2>&1; then
+		printf >&2 "${RED}Error: notify-send could not be found\n"
+		exit 1
   fi
 }
 
@@ -58,35 +58,35 @@ set_slow_profile() {
 	sudo ryzenadj $SLOW_WITH_AC &>/dev/null
 
 	printf "${GREEN}🛠  SLOW profile set successfully for $CPU processor\n"
-	# notify-send "New profile setting" "${CPU} in SLOW mode" -t 4000 -i $HOME/.local/share/custom-icons/amd-1.png
+	notify-send "New profile setting" "${CPU} in SLOW mode" -t 4000 -i $HOME/.local/share/custom-icons/amd-1.png
 }
 
 set_medium_profile() {
   sudo ryzenadj $MEDIUM_WITH_AC &>/dev/null
 
 	printf "${GREEN}🛠  MEDIUM profile set successfully for $CPU processor\n"
-	# notify-send "New profile setting" "${CPU} in MEDIUM mode" -t 4000 -i $HOME/.local/share/custom-icons/amd-2.png
+	notify-send "New profile setting" "${CPU} in MEDIUM mode" -t 4000 -i $HOME/.local/share/custom-icons/amd-2.png
 }
 
 set_high_profile() {
 	sudo ryzenadj $HIGH_WITH_AC &>/dev/null
 
 	printf "${GREEN}🛠  HIGH profile set successfully for $CPU processor\n"
-	# notify-send "New profile setting" "${CPU} in HIGH mode" -t 4000 -i $HOME/.local/share/custom-icons/amd-3.png
+	notify-send "New profile setting" "${CPU} in HIGH mode" -t 4000 -i $HOME/.local/share/custom-icons/amd-3.png
 }
 
 set_power_saving_profile() {
 	sudo ryzenadj --power-saving
 
 	printf "${GREEN}🛠 POWER SAVING profile set successfullys for $CPU processor\n"
-	# notify-send "AMD Controller" "🔔POWER PROFILE profile set successfully for ${CPU}" -t 4000
+	notify-send "AMD Controller" "🔔POWER PROFILE profile set successfully for ${CPU}" -t 4000
 }
 
 set_max_performance_profile() {
 	sudo ryzenadj --max-performance
 
 	printf "${GREEN}🛠 MAX PEPERFORMANCE profile set successfullys for $CPU processor\n"
-	# notify-send "AMD Controller" "🔔MAX PEPERFORMANCE profile set successfully for ${CPU}" -t 4000
+	notify-send "AMD Controller" "🔔MAX PEPERFORMANCE profile set successfully for ${CPU}" -t 4000
 }
 
 

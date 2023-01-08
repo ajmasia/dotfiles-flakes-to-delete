@@ -1,6 +1,6 @@
 self: super: {
   ajmasia-bin = super.stdenv.mkDerivation {
-    name = "ajmasia-bin";
+    name = "ajmasia-binaries";
 
     src = ../bin;
 

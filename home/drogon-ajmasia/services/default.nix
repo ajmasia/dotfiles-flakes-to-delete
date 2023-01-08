@@ -1,5 +1,6 @@
 [
   ./applets
+  ./dunst
   ./udiskie
   ./grobi
   ./picom

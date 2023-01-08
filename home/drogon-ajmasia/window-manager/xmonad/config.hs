@@ -89,7 +89,7 @@ myEditor :: String
 myEditor = myTerminal ++ "-e lvim"  -- Sets emacs as editor
 
 myBorderWidth :: Dimension
-myBorderWidth = 1           -- Sets border width for windows
+myBorderWidth = 0           -- Sets border width for windows
 
 myNormColor :: String       -- Border color of normal windows
 myNormColor   = color08   -- This variable is imported from Colors.THEME
@@ -500,7 +500,7 @@ myKeys c =
   , ("M-S-r", addName "Restart XMonad"         $ spawn "xmonad --restart")
   -- , ("M-S-q", addName "Quit XMonad"            $ sequence_ [spawn (mySoundPlayer ++ shutdownSound), io exitSuccess])
   , ("M-S-q", addName "Quit XMonad"            $ sequence_ [io exitSuccess])
-  , ("M-S-c", addName "Kill focused window"    $ kill1)
+  , ("M-w", addName "Kill focused window"    $ kill1)
   , ("M-S-a", addName "Kill all windows on WS" $ killAll)
   -- , ("M-S-<Return>", addName "Run prompt"      $ sequence_ [spawn (mySoundPlayer ++ dmenuSound), spawn "~/.local/bin/dm-run"])
   , ("M-S-b", addName "Toggle bar show/hide"   $ sendMessage ToggleStruts)
@@ -580,7 +580,8 @@ myKeys c =
   -- Switch layouts
   ^++^ subKeys "Switch layouts"
   [ ("M-<Tab>", addName "Switch to next layout"   $ sendMessage NextLayout)
-  , ("M-<Space>", addName "Toggle noborders/full" $ sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts)]
+  , ("M-<Space>", addName "Toggle noborders/full" $ sendMessage (MT.Toggle NBFULL) >> sendMessage ToggleStruts)
+  , ("M-M1-0", addName "Toggle noborders/full" $ sendMessage (MT.Toggle NOBORDERS))]
 
   -- Window resizing
   ^++^ subKeys "Window resizing"
@@ -598,10 +599,10 @@ myKeys c =
 
   -- Increase/decrease spacing (gaps)
   ^++^ subKeys "Window spacing (gaps)"
-  [ ("C-M1-j", addName "Decrease window spacing" $ decWindowSpacing 4)
-  , ("C-M1-k", addName "Increase window spacing" $ incWindowSpacing 4)
-  , ("C-M1-h", addName "Decrease screen spacing" $ decScreenSpacing 4)
-  , ("C-M1-l", addName "Increase screen spacing" $ incScreenSpacing 4)]
+  [ ("C-M1-j", addName "Decrease window spacing" $ decWindowSpacing 2)
+  , ("C-M1-k", addName "Increase window spacing" $ incWindowSpacing 2)
+  , ("C-M1-h", addName "Decrease screen spacing" $ decScreenSpacing 2)
+  , ("C-M1-l", addName "Increase screen spacing" $ incScreenSpacing 2)]
 
   -- Increase/decrease windows in the master pane or the stack
   ^++^ subKeys "Increase/decrease windows in master pane or the stack"

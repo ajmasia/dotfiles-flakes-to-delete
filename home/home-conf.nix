@@ -2,25 +2,12 @@
 
 let
   ajmasiaConfigPath = "drogon-ajmasia";
-in 
+in
 with inputs;
 {
   # drogon-ajmasia
   ajmasia = home-manager.lib.homeManagerConfiguration {
-    pkgs = import nixpkgs {
-      inherit system;
-
-      config = {
-        allowUnfree = true;
-        permittedInsecurePackages = [
-          "electron-12.2.3"
-        ];
-      };
-
-      overlays = [
-        (import ./${ajmasiaConfigPath}/overlays/bin.nix)
-      ];
-    };
+    pkgs = nixpkgs.legacyPackages.${system};
 
     modules = [
       ./${ajmasiaConfigPath}/home.nix

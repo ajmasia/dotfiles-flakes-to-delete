@@ -92,8 +92,16 @@
       autorun = true;
 
       displayManager = {
-        gdm = {
-          enable = true;
+        # gdm = {
+        #   enable = true;
+        # };
+
+        lightdm = {
+          greeters = {
+            enso = {
+              enable = true;
+            };
+          };
         };
 
         defaultSession = "none+xmonad";
@@ -152,7 +160,6 @@
       # use the example session manager (no others are packaged yet so this is enabled by default,
       # no need to redefine it in your config for now)
       #media-session.enable = true;
-
     };
 
     # Enable PCSC-Lite daemon, needed to work with yubikey cards
@@ -170,6 +177,19 @@
 
     # DBus service that allows applications to query and manipulate storage devices
     udisks2 = {
+      enable = true;
+    };
+
+    avahi = {
+      enable = true;
+
+      openFirewall = true; # Needed for detect net printers
+    };
+  };
+
+  programs = {
+    # Enable system dconf and fix some servicers erros from home-manager
+    dconf = {
       enable = true;
     };
   };
@@ -237,9 +257,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim         # The most popular clone of the VI editor
-    wget        # Tool for retrieving files using HTTP, HTTPS, and FTP
-    ryzenadj    # Adjust power management settings for Ryzen Mobile Processors.
+    vim # The most popular clone of the VI editor
+    wget # Tool for retrieving files using HTTP, HTTPS, and FTP
+    ryzenadj # Adjust power management settings for Ryzen Mobile Processors.
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -14,7 +14,7 @@ with pkgs; {
     fadeSteps = [ 0.03 0.28 ];
     fadeDelta = 8;
     opacityRules = [ "100:class_g = 'Rofi'" ];
-    shadow = false;
+    shadow = true;
     shadowOpacity = 0.75;
 
     wintypes = {

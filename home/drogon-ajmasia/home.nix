@@ -30,6 +30,23 @@ with pkgs; {
     stateVersion = "22.11";
   };
 
+  nixpkgs = {
+    config = {
+      allowUnfree = true;
+      allowUnfreePredicate = (_: true);
+      # allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      #   # packages
+      # ];
+      permittedInsecurePackages = [
+        "electron-12.2.3"
+      ];
+    };
+
+    overlays = [
+      (import ./overlays/bin.nix)
+    ];
+  };
+
   fonts.fontconfig.enable = true;
 
   imports = builtins.concatMap import [

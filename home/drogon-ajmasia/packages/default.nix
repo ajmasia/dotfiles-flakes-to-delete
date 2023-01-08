@@ -9,7 +9,7 @@ let
   });
 in
 with pkgs; [
-  # Terminal tools
+  # System & Terminal tools
   bc                  # GNU software calculator
   exa                 # A modern replacement for ls wirtten in Rust
   fd                  # A simple, fast and user-friendly alternative to find command
@@ -44,6 +44,7 @@ with pkgs; [
   yad                 # GUI dialog tool for shell scripts
   xdotool             # Fake keyboard/mouse input, window management, and more
   lxappearance        # Lightweight program for configuring the theme and fonts of gtk applications
+  libnotify           # A library that sends desktop notifications to a notification daemon
 
   # Fonts
   nerdfonts           # Iconic font aggregator, collection, & patcher. 3,600+ icons, 50+ patched fonts 

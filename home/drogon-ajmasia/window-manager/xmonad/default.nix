@@ -1,5 +1,11 @@
 { pkgs, ... }:
 
+let
+  wallpaper = (import ../../global.nix).wallpaper;
+  startup = ''
+    # startups programs
+  '';
+in
 {
   home.packages = with pkgs; [
     # xmobar # A Minimalistic Text Based Status Bar
@@ -11,6 +17,8 @@
   xsession = {
     enable = true;
 
+    initExtra = startup;
+
     windowManager.xmonad = {
       enable = true;
 
@@ -21,6 +29,7 @@
       config = ./config.hs;
       enableContribAndExtras = true;
 
+      # TODO: MOve this libs to a separate files
       libFiles = {
         "DoomOne.hs" = pkgs.writeText "DoomOne.hs" ''
           module DoomOne where
