@@ -13,7 +13,9 @@ with pkgs; {
     fade = true;
     fadeSteps = [ 0.03 0.28 ];
     fadeDelta = 8;
-    opacityRules = [ "100:class_g = 'Rofi'" ];
+    opacityRules = [
+      "100:class_g = 'Rofi'"
+    ];
     shadow = true;
     shadowOpacity = 0.75;
 
@@ -23,6 +25,7 @@ with pkgs; {
       dnd = { shadow = false; };
       popup_menu = { shadow = false; opacity = 1.0; };
       dropdown_menu = { shadow = false; opacity = 1.0; };
+      utility = { shadow = false; opacity = 1.0; };
     };
 
     settings = {
@@ -40,7 +43,7 @@ with pkgs; {
       use-damage = false;
       log-level = "warn";
 
-      experimental-backends = true;
+      # experimental-backends = true;
 
       mark-wmwin-focused = true;
       mark-ovredir-focused = false;
@@ -49,7 +52,8 @@ with pkgs; {
       detect-client-opacity = true;
       detect-transient = true;
       shadow-exclude = [
-        "class_g = 'firefox' && window_type = 'utility'"
+        "class_g = 'Slack'"
+        "class_g = 'TelegramDesktop'"
       ];
     };
   };

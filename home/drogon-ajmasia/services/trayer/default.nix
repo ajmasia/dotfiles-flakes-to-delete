@@ -12,6 +12,7 @@
       distance = 4;
       align = "right";
       edge = "top";
+      iconspacing = 4;
 
       margin = 260;
 
