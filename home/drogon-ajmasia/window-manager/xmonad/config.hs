@@ -14,6 +14,7 @@ import XMonad.Actions.Promote
 import XMonad.Actions.RotSlaves (rotSlavesDown, rotAllDown)
 import XMonad.Actions.WindowGo (runOrRaise)
 import XMonad.Actions.WithAll (sinkAll, killAll)
+import XMonad.Actions.OnScreen
 import qualified XMonad.Actions.Search as S
 
     -- Data
@@ -105,6 +106,18 @@ windowCount = gets $ Just . show . length . W.integrate' . W.stack . W.workspace
 
 myStartupHook :: X ()
 myStartupHook = do
+  -- Set Workspace 1 to external monitor solution 1
+  -- -- Focus the second screen.
+  -- screenWorkspace 1 >>= flip whenJust (windows . W.view)
+  -- -- Force the second screen to "misc", e.g. if the first screen already has
+  -- -- the workspace associated the screens will swap workspaces.
+  -- windows (W.greedyView $ myWorkspaces !! 0)
+  -- -- Focus the first screen again.
+  -- screenWorkspace 0 >>= flip whenJust (windows . W.view)
+
+  -- Set Workspace 1 to external monitor solution 2
+  windows (greedyViewOnScreen 1 $ myWorkspaces !! 0)
+
   -- spawnOnce (mySoundPlayer ++ startupSound)
   -- spawn "killall conky"   -- kill current conky on each restart
   -- spawn "killall trayer"  -- kill current trayer on each restart
@@ -429,8 +442,8 @@ myLayoutHook = avoidStruts
 -- myWorkspaces = [" 1 ", " 2 ", " 3 ", " 4 ", " 5 ", " 6 ", " 7 ", " 8 ", " 9 "]
 -- myWorkspaces = [" dev ", " www ", " sys ", " doc ", " vbox ", " chat ", " mus ", " vid ", " gfx "]
 myWorkspaces =
-        " <fn=2>\xf121</fn> " : -- dev
         " <fn=2>\xf086</fn> " : -- comunications
+        " <fn=2>\xf121</fn> " : -- dev
         " <fn=7>\xf269</fn> " : -- browser
         " <fn=7>\xf268</fn> " : -- chrome
         " <fn=2>\xf025</fn> " : -- music
@@ -450,22 +463,26 @@ myManageHook = composeAll
   -- using 'doShift ( myWorkspaces !! 7)' sends program to workspace 8!
   -- I'm doing it this way because otherwise I would have to write out the full
   -- name of my workspaces and the names would be very long if using clickable workspaces.
-  [ className =? "confirm"         --> doFloat
+  [ className =? ".blueman-manager-wrapped"  --> doCenterFloat
+  , className =? "Bitwarden"       --> doCenterFloat
+  , className =? ".protonvpn-wrapped"       --> doCenterFloat
+  , className =? "confirm"         --> doFloat
   , className =? "file_progress"   --> doFloat
   , className =? "dialog"          --> doFloat
   , className =? "download"        --> doFloat
   , className =? "error"           --> doFloat
-  , className =? "gimp"            --> doFloat
+  -- , className =? "gimp"            --> doFloat
   , className =? "notification"    --> doFloat
-  , className =? "pinentry-gtk-2"  --> doFloat
-  , className =? "splash"          --> doFloat
+  -- , className =? "pinentry-gtk-2"  --> doFloat
+  -- , className =? "splash"          --> doFloat
   , className =? "toolbar"         --> doFloat
   , className =? "Yad"             --> doCenterFloat
   , appName =? "google-chrome"     --> doShift ( myWorkspaces !! 3)
+  -- , className =? "VirtualBox Machine"  --> doFloat
   , title =? "Oracle VM VirtualBox Manager"  --> doFloat
   , title =? "Mozilla Firefox"     --> doShift ( myWorkspaces !! 2 )
-  , className =? "TelegramDesktop"   --> doShift ( myWorkspaces !! 1 )
-  , className =? "Slack"             --> doShift ( myWorkspaces !! 1 )
+  , className =? "TelegramDesktop"   --> doShift ( myWorkspaces !! 0 )
+  , className =? "Slack"             --> doShift ( myWorkspaces !! 0 )
   , className =? "VirtualBox Manager" --> doShift  ( myWorkspaces !! 4 )
   , (className =? "firefox" <&&> resource =? "Dialog") --> doFloat  -- Float Firefox Dialog
   , isFullscreen -->  doFullFloat

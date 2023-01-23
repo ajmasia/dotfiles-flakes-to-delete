@@ -23,7 +23,7 @@
     height = 300;
     offset = "16x55";
     origin = "top-right";
-    notification_limit = 10;
+    notification_limit = 6;
 
     # Show how many messages are currently hidden (because of geometry).
     indicate_hidden = "yes";
@@ -207,7 +207,7 @@
     # corners.
     # The radius will be automatically lowered if it exceeds half of the
     # notification height to avoid clipping text and/or icons.
-    corner_radius = 6;
+    corner_radius = 8;
 
     ### Legacy
 
@@ -279,9 +279,9 @@
   };
 
   urgency_normal = {
-    background = "#434c5e";
+    background = "#282c34";
     foreground = "#fffaff";
-    frame_color = "#303036";
+    frame_color = "#000000";
     frame_width = 1;
     timeout = 8;
     # Icon for notifications with normal urgency, uncomment to enable

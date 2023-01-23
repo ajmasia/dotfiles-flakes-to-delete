@@ -15,6 +15,7 @@ with pkgs; {
     fadeDelta = 8;
     opacityRules = [
       "100:class_g = 'Rofi'"
+      "100:window_type = 'notification'"
     ];
     shadow = true;
     shadowOpacity = 0.75;
@@ -43,7 +44,7 @@ with pkgs; {
       use-damage = false;
       log-level = "warn";
 
-      # experimental-backends = true;
+      experimental-backends = true;
 
       mark-wmwin-focused = true;
       mark-ovredir-focused = false;
@@ -54,6 +55,17 @@ with pkgs; {
       shadow-exclude = [
         "class_g = 'Slack'"
         "class_g = 'TelegramDesktop'"
+        "window_type = 'notification'"
+        "name = 'VirtualBox'"
+        "name = 'VirtualBoxVM'"
+      ];
+
+      corner-radius = 8;
+      round-borders = 1;
+      rounded-corners-exclude = [
+        "window_type = 'dock'" # xmobar
+        "window_type = 'normal'"
+        # "window_type = 'desktop'"
       ];
     };
   };

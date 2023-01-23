@@ -226,14 +226,30 @@
     docker = {
       enable = true;
     };
+
+    virtualbox = {
+      host = {
+        enable = true;
+
+        enableExtensionPack = true;
+      };
+    };
   };
 
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.ajmasia = {
-    isNormalUser = true;
-    description = "Antonio José Masiá";
-    extraGroups = [ "networkmanager" "wheel" "docker" "input" "audio" ];
+  users = {
+    users.ajmasia = {
+      isNormalUser = true;
+      description = "ajmasia";
+      extraGroups = [ "networkmanager" "wheel" "docker" "input" "audio" ];
+    };
+
+    extraGroups = {
+      vboxusers = {
+        members = [ "ajmasia" ];
+      };
+    };
   };
 
   # Make ready for nix flakes
@@ -257,9 +273,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # The most popular clone of the VI editor
-    wget # Tool for retrieving files using HTTP, HTTPS, and FTP
-    ryzenadj # Adjust power management settings for Ryzen Mobile Processors.
+    vim                 # The most popular clone of the VI editor
+    wget                # Tool for retrieving files using HTTP, HTTPS, and FTP
+    ryzenadj            # Adjust power management settings for Ryzen Mobile Processors.
+    logitech-udev-rules # Linux devices manager for the Logitech Unifying Receiver
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
