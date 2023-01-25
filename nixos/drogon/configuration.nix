@@ -92,9 +92,9 @@
       autorun = true;
 
       displayManager = {
-        # gdm = {
-        #   enable = true;
-        # };
+        gdm = {
+          enable = false;
+        };
 
         lightdm = {
           greeters = {
@@ -114,6 +114,13 @@
         };
       };
 
+      desktopManager = {
+        # Enable the GNOME Desktop Manager
+        gnome = {
+          enable = false;
+        };
+      };
+
       # Configure keymap in X11
       layout = "us";
       xkbVariant = "altgr-intl";
@@ -130,6 +137,7 @@
     udev = {
       packages = with pkgs; [
         pkgs.yubikey-personalization # Needed for yubikey apps
+        pkgs.bazecor
       ];
     };
 
@@ -229,7 +237,7 @@
 
     virtualbox = {
       host = {
-        enable = true;
+        enable = false;
 
         enableExtensionPack = true;
       };
@@ -268,15 +276,20 @@
     config = {
       allowUnfree = true;
     };
+
+    overlays = [
+      (f: p: { bazecor = inputs.bazecor-nix.packages.x86_64-linux.default; })
+    ];
   };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim                 # The most popular clone of the VI editor
-    wget                # Tool for retrieving files using HTTP, HTTPS, and FTP
-    ryzenadj            # Adjust power management settings for Ryzen Mobile Processors.
+    vim # The most popular clone of the VI editor
+    wget # Tool for retrieving files using HTTP, HTTPS, and FTP
+    ryzenadj # Adjust power management settings for Ryzen Mobile Processors.
     logitech-udev-rules # Linux devices manager for the Logitech Unifying Receiver
+    bazecor
   ];
 
   # Some programs need SUID wrappers, can be configured further or are

@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    bazecor-nix = {
+      url = github:ajmasia/bazecor-nix;
+    };
   };
 
   outputs = inputs @ { nixpkgs, home-manager, ... }:

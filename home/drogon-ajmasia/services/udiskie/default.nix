@@ -2,7 +2,7 @@
 
 {
   home.packages = with pkgs; [
-    at-spi2-core      # Assistive Technology Service Provider Interface protocol definitions and daemon for D-Bus
+    at-spi2-core # Assistive Technology Service Provider Interface protocol definitions and daemon for D-Bus
   ];
 
   services.udiskie = {

@@ -56,8 +56,8 @@ Config { font            = "Ubuntu Mono 12"
                         -- Ram used number and percent
                     , Run Memory ["-t", "<fn=2>\xf233</fn>  <usedratio>%"] 20
                         -- Disk space free
-                    , Run DiskU [("/", "<fn=3>\xf0c7</fn>  sys: <free>")
-                               , ("/home", "  <fn=3>\xf0c7</fn>  home: <free>")] [] 60
+                    , Run DiskU [("/", "<fn=3>\xf013</fn>  <free>")
+                               , ("/home", "  <fn=3>\xe1b0</fn>  <free>")] [] 60
                         -- Echos an "up arrow" icon in front of the uptime output.
                     , Run Com "echo" ["<fn=2>\xf0aa</fn>"] "uparrow" 3600
                         -- Echos an "temp" icon in front of the tcpu output.
@@ -86,12 +86,12 @@ Config { font            = "Ubuntu Mono 12"
        , alignSep = "}{"
        -- , template = " %UnsafeStdinReader% }{ <box type=Bottom width=2 mb=2 color=#98be65><fc=#98be65>%messages%  <action=`alacritty -e nvim .log/notify.log`>%notify-log%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#51afef><fc=#51afef>%penguin%  %kernel%</fc></box>    <box type=Bottom width=2 mb=2 color=#ecbe7b><fc=#ecbe7b><action=`alacritty -e htop`>%cpu%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#ff6c6b><fc=#ff6c6b><action=`alacritty -e htop`>%memory%</action></fc></box>    <box type=Bottom width=2 mb=2 color=#a9a1e1><fc=#a9a1e1>%disku%</fc></box>    <box type=Bottom width=2 mb=2 color=#98be65><fc=#98be65>%uparrow%  %uptime%</fc></box>    <box type=Bottom width=2 mb=2 color=#c678dd><fc=#c678dd>%bell%  <action=`alacritty -e sudo pacman -Syu`>%pacupdate%</action></fc></box>   <box type=Bottom width=2 mb=2 color=#da8548><fc=#da8548>%baticon%  %battery%</fc></box>    <box type=Bottom width=2 mb=2 color=#46d9ff><fc=#46d9ff><action=`emacsclient -c -a 'emacs' --eval '(doom/window-maximize-buffer(dt/year-calendar))'`>%date%</action></fc></box> %trayerpad%"
        , template = " %UnsafeStdinReader% }{\
-            \<fc=#ecbe7b><action=`alacritty -e htop`>%cpu%</action></fc>    \
-            \<fc=#ecbe7b>%temperature%  %tcpu%</fc>    \
-            \<fc=#ff6c6b><action=`alacritty -e htop`>%memory%</action></fc>    \
+            \<fc=#e6c547><action=`alacritty -e htop`>%cpu%</action></fc>    \
+            \<fc=#e6c547>%temperature%  %tcpu%</fc>    \
+            \<fc=#e6c547><action=`alacritty -e htop`>%memory%</action></fc>    \
             \<fc=#a9a1e1>%disku%</fc>    \
             \<fc=#98be65>%uparrow%  %uptime%</fc>          \
-            \%_XMONAD_TRAYPAD%     <fc=#f8f8f2>%date%</fc>    <fc=#ecbe7b>%power%</fc>  "
+            \%_XMONAD_TRAYPAD%     <fc=#f8f8f2>%date%</fc>    <fc=#f8f8f2>%power%</fc>  "
        }
 
 

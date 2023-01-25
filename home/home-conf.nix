@@ -9,9 +9,12 @@ with inputs;
   ajmasia = home-manager.lib.homeManagerConfiguration {
     pkgs = nixpkgs.legacyPackages.${system};
 
+    extraSpecialArgs = {
+      inherit inputs;
+    };
+
     modules = [
-      ./${ajmasiaConfigPath}/home.nix
+      ./${ajmasiaConfigPath}/home.nix 
     ];
   };
 }
-

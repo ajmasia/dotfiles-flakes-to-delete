@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 let
   username = (import ./global.nix).userName;
   homeDirectory = (import ./global.nix).homeDirectory;
 in
-with pkgs; {
+with pkgs;
+{
   home = {
     inherit username homeDirectory;
 
@@ -34,9 +35,6 @@ with pkgs; {
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
-      # allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      #   # packages
-      # ];
       permittedInsecurePackages = [
         "electron-12.2.3"
       ];
