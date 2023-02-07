@@ -20,7 +20,7 @@ in
     initExtra = startup;
 
     windowManager.xmonad = {
-      enable = true;
+      enable = false;
 
       # extraPackages = haskellPackages: [
       #   haskellPackages.xmonad-contrib

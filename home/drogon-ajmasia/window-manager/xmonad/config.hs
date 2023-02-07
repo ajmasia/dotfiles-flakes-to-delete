@@ -205,21 +205,21 @@ spirals  = renamed [Replace "spirals"]
            $ subLayout [] (smartBorders Simplest)
            $ mySpacing' initialSpacing
            $ spiral (6/7)
-threeCol = renamed [Replace "threeCol"]
-           $ limitWindows 7
-           $ smartBorders
-           $ windowNavigation
-           $ subLayout [] (smartBorders Simplest)
-           $ mySpacing initialSpacing
-           $ ThreeCol 1 (3/100) (1/2)
-threeRow = renamed [Replace "threeRow"]
-           $ limitWindows 7
-           $ smartBorders
-           $ windowNavigation
-           $ subLayout [] (smartBorders Simplest)
-           $ mySpacing initialSpacing
-           $ Mirror
-           $ ThreeCol 1 (3/100) (1/2)
+-- threeCol = renamed [Replace "threeCol"]
+--            $ limitWindows 7
+--            $ smartBorders
+--            $ windowNavigation
+--            $ subLayout [] (smartBorders Simplest)
+--            $ mySpacing initialSpacing
+--            $ ThreeCol 1 (3/100) (1/2)
+-- threeRow = renamed [Replace "threeRow"]
+--            $ limitWindows 7
+--            $ smartBorders
+--            $ windowNavigation
+--            $ subLayout [] (smartBorders Simplest)
+--            $ mySpacing initialSpacing
+--            $ Mirror
+--            $ ThreeCol 1 (3/100) (1/2)
 
 -- The layout hook
 myLayoutHook = avoidStruts
@@ -233,8 +233,8 @@ myLayoutHook = avoidStruts
                                            ||| floats
                                            ||| grid
                                            ||| spirals
-                                           ||| threeCol
-                                           ||| threeRow
+                                           -- ||| threeCol
+                                           -- ||| threeRow
 -- START layoutHook settings
 
 
@@ -280,7 +280,8 @@ myManageHook = composeAll
   , className =?  "toolbar"                               --> doFloat
   , className =?  "Yad"                                   --> doCenterFloat
   , className =?  "Google-chrome"                         --> doShift ( myWorkspaces !! 6 )
-  , className =?  "VirtualBox Manager"                    --> doShift ( myWorkspaces !! 4 )
+  -- , className =?  "VirtualBox Manager"                    --> doShift ( myWorkspaces !! 4 )
+  , className =?  "BAZECOR"                               --> doCenterFloat
   , title     =?  "Mozilla Firefox"                       --> doShift ( myWorkspaces !! 6 )
   , className =?  "TelegramDesktop"                       --> doShift ( myWorkspaces !! 0 )
   , className =?  "Slack"                                 --> doShift ( myWorkspaces !! 0 )
@@ -433,7 +434,7 @@ myKeys c =
   -- When you toggle them to show, it brings them to current workspace.
   -- Toggle them to hide and it sends them back to hidden workspace (NSP).
   ^++^ subKeys "Scratchpads"
-  [ ("M-S-l", addName "Toggle scratchpad terminal"   $ namedScratchpadAction myScratchPads "terminal") ]
+  [ ("M-S-t", addName "Toggle scratchpad terminal"   $ namedScratchpadAction myScratchPads "terminal") ]
 
   -- Controls for mocp music player (SUPER-u followed by a key)
   -- ^++^ subKeys "Mocp music player"

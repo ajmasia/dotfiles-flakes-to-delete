@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Initialize bspw monitors & desktops
+is_displayPort_1_monitor_conneccted=$(xrandr --query | grep 'DisplayPort-1 connected')
+
+if [[ $is_displayPort_1_monitor_conneccted == "" ]]; then
+  bspc monitor HDMI-A-0 -d I II III IV V VI VII VIII IX X
+else
+  bspc monitor DisplayPort-1 -d I II III
+  bspc monitor HDMI-A-0 -d IV V VI VII VIII IX X
+fi 

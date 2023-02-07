@@ -13,4 +13,15 @@ in
     type = "Application";
     categories = [ "Utility" ];
   };
+
+  "bazecor" = {
+    comment = "Bazecor Dygma app";
+    exec = "Bazecor";
+    genericName = "Yubico Authenticator";
+    icon = homeDirectory + "/.local/share/desktop-icons/bazecor.png";
+    name = "Bazecor";
+    terminal = false;
+    type = "Application";
+    categories = [ "Utility" ];
+  };
 }

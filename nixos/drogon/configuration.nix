@@ -104,7 +104,7 @@
           };
         };
 
-        defaultSession = "none+xmonad";
+        # defaultSession = "none+bspwm";
       };
 
       windowManager = {
@@ -208,6 +208,15 @@
   };
 
   hardware = {
+    logitech = {
+      wireless = {
+        enable = true;
+
+        # for solaar to be included
+        enableGraphical = true;
+      };
+    };
+
     pulseaudio = {
       enable = false;
 
@@ -237,7 +246,7 @@
 
     virtualbox = {
       host = {
-        enable = false;
+        enable = true;
 
         enableExtensionPack = true;
       };

@@ -6,4 +6,6 @@
   ./picom
   ./sxhkd
   ./trayer
+  ./polybar
+  ./emacs
 ]

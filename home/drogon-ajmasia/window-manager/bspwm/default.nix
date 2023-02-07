@@ -8,13 +8,11 @@
     enable = true;
 
     windowManager.bspwm = {
-      enable = false;
+      enable = true;
 
       settings = {
-        "border_width" = 2;
-        "focused_border_color" = "#ffe613";
-        # "normal_border_color" = "#ffffff";
-        "window_gap" = 0;
+        "border_width" = 0;
+        "window_gap" = 12;
         "ignore_ewmh_struts" = "";
         "focus_follows_pointer" = true;
         "remove_disabled_monitors" = true;
@@ -28,6 +26,28 @@
         "pointer_motion_interval" = 0.8;
       };
 
+      rules = {
+        "terminal-scpad" = {
+          sticky = true;
+          state = "floating";
+          center = true;
+          rectangle = "1896x1056+100+100";
+        };
+      };
+
+      startupPrograms = [
+        "# Startup"
+        "systemctl --user restart picom.service"
+        "pgrep -x sxhkd > /dev/null || sxhkd"
+      ];
+
+      extraConfig = ''
+        # Kill related services
+        pkill sxhkd
+
+        # Initialize monitors
+        bspc_initialize-monitors
+      '';
     };
   };
 }

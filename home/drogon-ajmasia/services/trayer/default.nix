@@ -2,7 +2,7 @@
 
 {
   services.trayer = {
-    enable = true;
+    enable = false;
 
     settings = {
       monitor = "primary";
@@ -14,7 +14,7 @@
       edge = "top";
       iconspacing = 4;
 
-      margin = 260;
+      margin = 280;
 
       transparent = true;
       alpha = 0;

@@ -8,4 +8,6 @@
   ./rofi
   ./yubikey
   ./xmobar
+  ./emacs
+  ./kitty
 ]

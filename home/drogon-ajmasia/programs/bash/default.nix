@@ -4,6 +4,7 @@ let
   initExtraConfig = ''
     # Init extra config
     export PATH="$HOME/.local/bin:$PATH"
+    PATH=~/.emacs.d/bin:$PATH
   '';
 
   profileExtraConfig = ''
