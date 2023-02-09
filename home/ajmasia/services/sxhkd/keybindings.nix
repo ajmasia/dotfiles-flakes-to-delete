@@ -1,6 +1,11 @@
+{...}:
+
+let
+  userConfigPath = (import ../../global.nix).configHome;
+in
 {
   # Window manager control
-  "super + alt + {q,r}" = "bspc {quit, wm -r}";
+  "super + alt + {q,r}" = "{bspc quit, ${userConfigPath}/bspwm/scripts/bspc_restart}";
   "super + Escape" = "pkill -USR1 -x sxhkd";
 
   # App launchers
@@ -14,7 +19,7 @@
   # "super + shift + p" = "set-cpu-profile";
 
   # Scrachpads
-  "super + shift + t" = "bspc_terminal-scrachpad";
+  "super + shift + t" = "${userConfigPath}/bspwm/scripts/bspc_terminal-scrachpad";
 
   # Windows management
   "super + {_,shift + }w" = "bspc node -{c,k}";

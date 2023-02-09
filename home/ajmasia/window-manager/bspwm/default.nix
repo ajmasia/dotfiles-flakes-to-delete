@@ -1,8 +1,16 @@
 { pkgs, ... }:
 
+let
+  userConfigPath = (import ../../global.nix).configHome;
+in
 {
-  home.packages = with pkgs; [
-  ];
+  home = {
+    packages = with pkgs; [ ];
+
+    file = {
+      ".config/bspwm/scripts".source = ./scripts;
+    };
+  };
 
   xsession = {
     enable = true;
@@ -37,16 +45,12 @@
 
       startupPrograms = [
         "# Startup"
-        "systemctl --user restart picom.service"
         "pgrep -x sxhkd > /dev/null || sxhkd"
       ];
 
       extraConfig = ''
-        # Kill related services
-        pkill sxhkd
-
         # Initialize monitors
-        bspc_initialize-monitors
+        ${userConfigPath}/bspwm/scripts/bspc_initialize-monitors
       '';
     };
   };

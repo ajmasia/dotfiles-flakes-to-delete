@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+pkill sxhkd
+systemctl --user restart picom &
+systemctl --user restart polybar &
+
+bspc wm -r &
+pgrep -x sxhkd > /dev/null || sxhkd &

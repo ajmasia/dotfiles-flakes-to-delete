@@ -29,4 +29,5 @@
   refresh-rate = 0;
   use-damage = false;
   log-level = "warn";
+  experimental-backends = true;
 }
