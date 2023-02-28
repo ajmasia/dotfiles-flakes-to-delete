@@ -10,7 +10,14 @@
     };
 
     bazecor-nix = {
-      url = github:ajmasia/bazecor-nix;
+      url = "github:ajmasia/bazecor-nix";
+    };
+
+    amd-controller = {
+      type = "github";
+      owner = "ajmasia";
+      repo = "amd-controller";
+      ref = "implement_multi_processor-config";
     };
   };
 
@@ -18,6 +25,12 @@
 
     let
       system = "x86_64-linux";
+      customModules = {
+        # Configuración de NixOS
+        imports = [
+          inputs.amd-controller.module
+        ];
+      };
     in
     {
       homeConfigurations = (
@@ -28,7 +41,7 @@
 
       nixosConfigurations = (
         import ./nixos/nixos-conf.nix {
-          inherit system inputs;
+          inherit system inputs customModules;
         }
       );
     };

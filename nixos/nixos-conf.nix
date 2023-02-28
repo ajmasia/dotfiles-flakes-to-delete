@@ -1,4 +1,4 @@
-{ system, inputs, ... }:
+{ system, inputs, customModules, ... }:
 
 let
   nixosSystem = inputs.nixpkgs.lib.nixosSystem;
@@ -13,6 +13,7 @@ in
     };
 
     modules = [
+      customModules
       ./drogon/configuration.nix
     ];
   };

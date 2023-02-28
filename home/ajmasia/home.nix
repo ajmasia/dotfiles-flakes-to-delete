@@ -40,9 +40,9 @@ with pkgs;
       ];
     };
 
-    overlays = [
-      (import ./overlays/bin.nix)
-    ];
+    # overlays = [
+    #   (import ./overlays/bin.nix)
+    # ];
   };
 
   fonts.fontconfig.enable = true;

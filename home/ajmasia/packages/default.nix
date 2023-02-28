@@ -24,7 +24,7 @@ with pkgs; [
   lm_sensors              # Tools for reading hardware sensors
   tldr                    # Simplified and community-driven man pages
   geekbench               # Cross-platform benchmark
-  ajmasia-bin             # Personal scripts (see overlay)
+  # ajmasia-bin             # Personal scripts (see overlay)
   cava                    # Console-based Audio Visualizer for Alsa
 
   # CLIs
@@ -56,7 +56,6 @@ with pkgs; [
   font-awesome            # Font Awesome - OTF font
 
   # Editors
-  neovim                  # Vim text editor fork focused on extensibility and agility
   vscode                  # Open source source code editor developed by Microsoft for Windows, Linux and macOS 
   obsidian                # A powerful knowledge base that works on top of a local folder of plain text Markdown files
 

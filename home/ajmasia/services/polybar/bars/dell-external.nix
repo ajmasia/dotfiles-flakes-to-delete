@@ -4,7 +4,7 @@ let
   name = "dell-external";
 
   monitor = "DisplayPort-1";
-  fonts = builtins.readFile ../utils/fonts.ini;
+  fonts = pkgs.callPackage ../utils/fonts.nix { };
   colors = pkgs.callPackage ../utils/colors.nix { };
 in
 ''

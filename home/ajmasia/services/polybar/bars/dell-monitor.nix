@@ -4,7 +4,7 @@ let
   name = "dell-monitor";
 
   monitor = "HDMI-A-0";
-  fonts = builtins.readFile ../utils/fonts.ini;
+  fonts = pkgs.callPackage ../utils/fonts.nix { };
   colors = pkgs.callPackage ../utils/colors.nix { };
 in
 ''
@@ -52,7 +52,7 @@ in
   # Tray
   tray-position = right
   tray-detached = true
-  tray-offset-x = -12
+  tray-offset-x = -380
   tray-offset-y = 0
   tray-background = ${colors.bg}
   tray-foreground = ${colors.fg}
@@ -60,6 +60,7 @@ in
   tray-scale = 1.0
 
   # Modules
-  modules-left = workspaces
-  modules-right =
+  modules-left = power sep-2 workspaces
+  modules-center = fs-root sep-2 fs-home
+  modules-right = date
 ''

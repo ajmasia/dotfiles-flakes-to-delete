@@ -35,6 +35,12 @@
     };
   };
 
+  amd-controller = {
+    enable = true;
+
+    processor = "5900HX";
+  };
+
   # Set your time zone.
   time = {
     timeZone = "Europe/Madrid";
@@ -296,7 +302,7 @@
   environment.systemPackages = with pkgs; [
     vim # The most popular clone of the VI editor
     wget # Tool for retrieving files using HTTP, HTTPS, and FTP
-    ryzenadj # Adjust power management settings for Ryzen Mobile Processors.
+    # ryzenadj # Adjust power management settings for Ryzen Mobile Processors.
     logitech-udev-rules # Linux devices manager for the Logitech Unifying Receiver
     bazecor
   ];

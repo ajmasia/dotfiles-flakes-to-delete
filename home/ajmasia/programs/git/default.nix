@@ -5,6 +5,7 @@ let
   gitConfig = {
     core = {
       excludesfile = "${homeDirectory}/.gitignore";
+      editor = "vim";
     };
 
     init = {

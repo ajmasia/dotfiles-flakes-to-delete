@@ -5,6 +5,7 @@
   ./alacritty
   ./starship
   ./vim
+  ./neovim
   ./rofi
   ./yubikey
   ./xmobar
