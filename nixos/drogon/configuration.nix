@@ -39,6 +39,10 @@
     enable = true;
 
     processor = "5900HX";
+
+    powerManagement = {
+      enable = true;
+    };
   };
 
   # Set your time zone.
