@@ -114,24 +114,15 @@
           };
         };
 
-        # defaultSession = "none+bspwm";
+        defaultSession = "none+bspwm";
       };
 
       windowManager = {
-        xmonad = {
+        bspwm = {
           enable = true;
-          enableContribAndExtras = true;
         };
       };
 
-      desktopManager = {
-        # Enable the GNOME Desktop Manager
-        gnome = {
-          enable = false;
-        };
-      };
-
-      # Configure keymap in X11
       layout = "us";
       xkbVariant = "altgr-intl";
     };
