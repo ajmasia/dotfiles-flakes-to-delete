@@ -254,13 +254,13 @@
       enable = true;
     };
 
-    virtualbox = {
-      host = {
-        enable = true;
+    # virtualbox = {
+    #   host = {
+    #     enable = true;
 
-        enableExtensionPack = true;
-      };
-    };
+    #     enableExtensionPack = true;
+    #   };
+    # };
   };
 
 
@@ -272,11 +272,11 @@
       extraGroups = [ "networkmanager" "wheel" "docker" "input" "audio" ];
     };
 
-    extraGroups = {
-      vboxusers = {
-        members = [ "ajmasia" ];
-      };
-    };
+    # extraGroups = {
+    #   vboxusers = {
+    #     members = [ "ajmasia" ];
+    #   };
+    # };
   };
 
   # Make ready for nix flakes
