@@ -28,9 +28,9 @@ with pkgs; {
   home = {
     packages = [ ];
 
-    file = {
-      ".config/polybar/scripts".source = ./scripts;
-    };
+    # file = {
+    #   ".config/polybar/scripts".source = ./scripts;
+    # };
   };
 
   services.polybar = {
@@ -42,6 +42,7 @@ with pkgs; {
     script = ''
       # Startup script
       # ${userConfigPath}/polybar/scripts/pb_startup
+      echo "polybar startup" >> ${config.xdg.configHome}/polybar/logs/dell-monitor.log &
       polybar dell-monitor 2>${config.xdg.configHome}/polybar/logs/dell-monitor.log &
       polybar dell-external 2>${config.xdg.configHome}/polybar/logs/dell-external.log &
     '';

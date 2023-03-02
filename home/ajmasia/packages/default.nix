@@ -37,7 +37,7 @@ with pkgs; [
   sxiv                    # Simple X Image Viewer
 
   # Browsers
-  # firefox                 # A web browser built from Firefox source tree
+  firefox                 # A web browser built from Firefox source tree
   google-chrome           # A freeware web browser developed by Google
   # brave                   # Privacy-oriented browser for Desktop and Laptop computers
 
