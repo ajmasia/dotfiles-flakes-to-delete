@@ -29,7 +29,7 @@ with pkgs; [
 
   # CLIs
   telegram-cli            # Command-line interface for Telegram
-  protonvpn-cli           # Linux command-line client for ProtonVPN
+  # protonvpn-cli           # Linux command-line client for ProtonVPN
 
   # File system management
   ranger                  # File manager with minimalistic curses interface
@@ -37,9 +37,9 @@ with pkgs; [
   sxiv                    # Simple X Image Viewer
 
   # Browsers
-  firefox                 # A web browser built from Firefox source tree
+  # firefox                 # A web browser built from Firefox source tree
   google-chrome           # A freeware web browser developed by Google
-  brave                   # Privacy-oriented browser for Desktop and Laptop computers
+  # brave                   # Privacy-oriented browser for Desktop and Laptop computers
 
   # UI
   feh                     # A light-weight image viewer
@@ -47,7 +47,7 @@ with pkgs; [
   yad                     # GUI dialog tool for shell scripts
   xdotool                 # Fake keyboard/mouse input, window management, and more
   xdo                     # Small X utility to perform elementary actions on windows
-  lxappearance            # Lightweight program for configuring the theme and fonts of gtk applications
+  # lxappearance            # Lightweight program for configuring the theme and fonts of gtk applications
   libnotify               # A library that sends desktop notifications to a notification daemon
 
 
@@ -76,9 +76,9 @@ with pkgs; [
   bitwarden               # A secure and free password manager for all of your devices
   bitwarden-cli           # A secure and free password manager for all of your devices.
 
-  _1password-gui          # Multi-platform password manager
-  _1password              # 1Password command-line tool
-  protonvpn-gui           # Official ProtonVPN Linux app
+  # _1password-gui          # Multi-platform password manager
+  # _1password              # 1Password command-line tool
+  # protonvpn-gui           # Official ProtonVPN Linux app
 
   # Comunications
   tdesktop                # Telegram Desktop messaging app
