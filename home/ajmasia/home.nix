@@ -47,6 +47,8 @@ with pkgs;
 
   fonts.fontconfig.enable = true;
 
+  programs.home-manager.enabl = true;
+  
   imports = builtins.concatMap import [
     ./xdg
     ./window-manager
