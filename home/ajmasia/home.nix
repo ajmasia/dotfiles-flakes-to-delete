@@ -47,7 +47,7 @@ with pkgs;
 
   fonts.fontconfig.enable = true;
 
-  programs.home-manager.enabl = true;
+  programs.home-manager.enable = true;
   
   imports = builtins.concatMap import [
     ./xdg
