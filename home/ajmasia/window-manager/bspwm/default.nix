@@ -51,7 +51,7 @@ in
       ];
 
       extraConfig = ''
-        # Initialize monitors
+        # Initialize monitors 2>${userConfigPath}/bspwm/startup.log
         ${userConfigPath}/bspwm/scripts/bspc_initialize-monitors
       '';
     };
