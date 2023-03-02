@@ -8,8 +8,8 @@ in
 
     rules =
       let
-        MAIN_MONITOR = "HDMI-A-0";
-        PORTABLE_MONITOR = "DisplayPort-1";
+        MAIN_MONITOR = "HDMI-1";
+        PORTABLE_MONITOR = "DP-2";
       in
       [
         {

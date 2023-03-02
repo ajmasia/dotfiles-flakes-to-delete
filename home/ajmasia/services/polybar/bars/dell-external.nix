@@ -3,7 +3,7 @@
 let
   name = "dell-external";
 
-  monitor = "DisplayPort-1";
+  monitor = "DP-2";
   fonts = pkgs.callPackage ../utils/fonts.nix { };
   colors = pkgs.callPackage ../utils/colors.nix { };
 in
