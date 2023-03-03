@@ -36,7 +36,12 @@
   };
 
   amd-controller = {
-    enable = false;
+    enable = true;
+
+    # runAsAdmin = {
+    #   enable = true;
+    #   user = "ajmasia";
+    # };
 
     processor = "5900HX";
 
@@ -90,6 +95,20 @@
     # which hands out realtime scheduling priority to user processes on demand
     rtkit = {
       enable = true;
+    };
+    sudo = {
+      enable = true;
+      extraRules = [
+        {
+          users = [ "ajmasia" ];
+          commands = [
+            {
+              command = "${pkgs.amd-controller}";
+              options = [ "NOPASSWD" ];
+            }
+          ];
+        }
+      ];
     };
   };
 
