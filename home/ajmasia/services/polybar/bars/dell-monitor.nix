@@ -3,7 +3,7 @@
 let
   name = "dell-monitor";
 
-  monitor = "HDMI-1";
+  monitor = "HDMI-A-0";
   fonts = pkgs.callPackage ../utils/fonts.nix { };
   colors = pkgs.callPackage ../utils/colors.nix { };
 in

@@ -45,6 +45,8 @@ in
 
       startupPrograms = [
         "# Startup"
+        "systemctl --user restart picom"
+        "systemctl --user restart polybar"
         "pgrep -x sxhkd > /dev/null || sxhkd"
         "solaar -w hide -b solaar"
         "notify-send 'Window Manager' 'Bspwm Startup finished' -i ~/.local/share/notify-icons/nixos.png"
