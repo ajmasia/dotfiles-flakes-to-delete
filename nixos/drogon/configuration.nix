@@ -96,20 +96,6 @@
     rtkit = {
       enable = true;
     };
-    sudo = {
-      enable = true;
-      extraRules = [
-        {
-          users = [ "ajmasia" ];
-          commands = [
-            {
-              command = "${pkgs.amd-controller}";
-              options = [ "NOPASSWD" ];
-            }
-          ];
-        }
-      ];
-    };
   };
 
 
