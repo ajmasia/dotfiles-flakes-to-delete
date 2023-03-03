@@ -5,11 +5,11 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1677696604,
-        "narHash": "sha256-QYuH9X4BJToUYk+0U6Z1vUkVKMcP6S7H1Geu1Pz+teE=",
+        "lastModified": 1677827965,
+        "narHash": "sha256-Fg1uRCSvRCx/nkDs1lfOwYrd94MjFi0/MjUKlWwIvSI=",
         "owner": "ajmasia",
         "repo": "amd-controller",
-        "rev": "b3b1e8098c4de2f0a4f3597b8962daca9b4c60eb",
+        "rev": "411c628bb54eb78e1ab0fbb06f664896d868a525",
         "type": "github"
       },
       "original": {

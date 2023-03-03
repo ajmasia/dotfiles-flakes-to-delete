@@ -34,13 +34,13 @@
     in
     {
       homeConfigurations = (
-        import ./home/home-conf.nix {
+        import ./home/default.nix {
           inherit system inputs;
         }
       );
 
       nixosConfigurations = (
-        import ./nixos/nixos-conf.nix {
+        import ./nixos/default.nix {
           inherit system inputs customModules;
         }
       );
