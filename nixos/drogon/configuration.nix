@@ -36,7 +36,7 @@
   };
 
   amd-controller = {
-    enable = true;
+    enable = false;
 
     processor = "5900HX";
 
