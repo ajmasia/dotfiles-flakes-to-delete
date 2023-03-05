@@ -48,7 +48,7 @@
 
     powerManagement = {
       enable = true;
-      awakeMode = "slow";
+      awakeMode = "medium";
     };
   };
 
