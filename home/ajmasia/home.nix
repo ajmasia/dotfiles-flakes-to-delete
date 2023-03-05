@@ -40,9 +40,10 @@ with pkgs;
       ];
     };
 
-    # overlays = [
-    #   (import ./overlays/bin.nix)
-    # ];
+    overlays = [
+      # (import ./overlays/bin.nix)
+      (f: p: { amd-controller = inputs.amd-controller.packages.x86_64-linux.default; })
+    ];
   };
 
   fonts.fontconfig.enable = true;

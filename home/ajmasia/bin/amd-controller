@@ -135,12 +135,68 @@ set_max_performance_profile() {
   printf "${GREEN}🛠 MAX PEPERFORMANCE profile set successfullys for $CPU processor\n"
 }
 
-show_processor_profile_info() {
+get_current_tune_values() {
   STAPM_LIMIT=$(sudo ryzenadj -i | grep "STAPM LIMIT" | awk '{print $5}')
   PPT_LIMIT_FAST=$(sudo ryzenadj -i | grep "PPT LIMIT FAST" | awk '{print $6}')
-  PPT_LIMIT_SLOW=$(sudo ryzenadj -i | grep "PPT LIMIT SLOW" | awk '{print $7}')
+  PPT_LIMIT_SLOW=$(sudo ryzenadj -i | grep "PPT LIMIT SLOW" | awk '{print $6}')
   CCLK_BOOST_SETPOINT=$(sudo ryzenadj -i | grep "CCLK Boost SETPOINT" | awk '{print $6}')
   CCLK_BUSY_VALUE=$(sudo ryzenadj -i | grep "CCLK BUSY VALUE" | awk '{print $6}')
+}
+
+getPowerValue() {
+  echo $(jq .modePowerLimits.$1 /etc/amd-controller/config.json)
+}
+
+getCurrentProfile() {
+  get_current_tune_values
+
+  if [[ $STAPM_LIMIT == $(getPowerValue ac.slow.average && \
+    $PPT_LIMIT_SLOW == $(getPowerValue ac.slow.sustained && \
+    $PPT_LIMIT_FAST == $(getPowerValue ac.slow.actual ]]; then
+  echo "slow"
+
+  elfi [[ $STAPM_LIMIT == $(getPowerValue bat.slow.average && \
+    $PPT_LIMIT_SLOW == $(getPowerValue bat.slow.sustained && \
+    $PPT_LIMIT_FAST == $(getPowerValue bat.slow.actual ]]; then
+  echo "slow"
+
+  elfi [[ $STAPM_LIMIT == $(getPowerValue ac.medium.average && \
+    $PPT_LIMIT_medium == $(getPowerValue ac.medium.sustained && \
+    $PPT_LIMIT_FAST == $(getPowerValue ac.medium.actual ]]; then
+  echo "medium"
+
+  elfi [[ $STAPM_LIMIT == $(getPowerValue bat.medium.average && \
+    $PPT_LIMIT_medium == $(getPowerValue bat.medium.sustained && \
+    $PPT_LIMIT_FAST == $(getPowerValue bat.medium.actual ]]; then
+  echo "medium"
+
+  elfi [[ $STAPM_LIMIT == $(getPowerValue ac.high.average && \
+    $PPT_LIMIT_high == $(getPowerValue ac.high.sustained && \
+    $PPT_LIMIT_FAST == $(getPowerValue ac.high.actual ]]; then
+  echo "high"
+
+  elfi [[ $STAPM_LIMIT == $(getPowerValue bat.high.average && \
+    $PPT_LIMIT_high == $(getPowerValue bat.high.sustained && \
+    $PPT_LIMIT_FAST == $(getPowerValue bat.high.actual ]]; then
+  echo "high"
+
+  elfi [[ $STAPM_LIMIT == $(getPowerValue ac.fire.average && \
+    $PPT_LIMIT_fire == $(getPowerValue ac.fire.sustained && \
+    $PPT_LIMIT_FAST == $(getPowerValue ac.fire.actual ]]; then
+  echo "fire"
+
+  elfi [[ $STAPM_LIMIT == $(getPowerValue bat.fire.average && \
+    $PPT_LIMIT_fire == $(getPowerValue bat.fire.sustained && \
+    $PPT_LIMIT_FAST == $(getPowerValue bat.fire.actual ]]; then
+  echo "fire"
+
+  else 
+    echo "auto"
+  fi
+}
+
+show_processor_profile_info() {
+  get_current_tune_values
 
   printf " ${GREEN}${CPU} currrent profile info${COLOR_OFF}\n"
 

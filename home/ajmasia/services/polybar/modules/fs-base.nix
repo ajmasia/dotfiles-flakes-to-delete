@@ -29,7 +29,7 @@ in
 
   format-mounted = <label-mounted>
   format-mounted-prefix = 
-  format-mounted-prefix-foreground = ${colors.base.purple}
+  format-mounted-prefix-foreground = ${colors.base.yellow}
   format-mounted-prefix-padding-right = 12px
   format-mounted-prefix-font = 6
 

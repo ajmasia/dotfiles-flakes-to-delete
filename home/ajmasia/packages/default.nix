@@ -94,5 +94,8 @@ with pkgs; [
 
   # Tools
   etcher                  # Flash OS images to SD cards and USB drives, safely and easily
+
+  # Testing
+  amd-controller
 ]
 

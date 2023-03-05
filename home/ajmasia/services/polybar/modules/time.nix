@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 let
-  name = "date";
+  name = "time";
   type = "internal/date";
 
   colors = pkgs.callPackage ../utils/colors.nix { };
@@ -13,10 +13,9 @@ in
   # core
   interval = 1.0
   time = "%H:%M"
-  date = "%a %d %B"
 
   # label
-  label = %time%  %date%
+  label = %time%
   label-font = 19
 
   # format

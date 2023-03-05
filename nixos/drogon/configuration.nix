@@ -38,15 +38,17 @@
   amd-controller = {
     enable = true;
 
-    # runAsAdmin = {
-    #   enable = true;
-    #   user = "ajmasia";
-    # };
+    runAsAdmin = {
+      # required by polybar cpu-profile
+      enable = true;
+      user = "ajmasia";
+    };
 
     processor = "5900HX";
 
     powerManagement = {
       enable = true;
+      awakeMode = "slow";
     };
   };
 

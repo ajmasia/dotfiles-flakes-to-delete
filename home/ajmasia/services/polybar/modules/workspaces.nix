@@ -20,7 +20,7 @@ in
   label-monitor = %name%
 
   label-focused = 
-  label-focused-foreground = ${colors.base.green}
+  label-focused-foreground = ${colors.base.yellow}
   label-focused-padding = 1
 
   label-occupied = 

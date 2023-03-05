@@ -5,8 +5,7 @@ let
 in
 {
   # Window manager control bspc wm -r &
-  "super + alt + {q,r}" = "{bspc quit, bspc wm -r";
-  # "super + alt + {q,r}" = "{bspc quit, ${userConfigPath}/bspwm/scripts/bspc_restart}";
+  "super + alt + {q,r}" = "{bspc quit, ${userConfigPath}/bspwm/scripts/bspc_restart}";
   "super + Escape" = "pkill -USR1 -x sxhkd";
 
   # App launchers

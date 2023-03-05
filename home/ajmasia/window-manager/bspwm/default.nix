@@ -45,8 +45,9 @@ in
 
       startupPrograms = [
         "# Startup"
+        "systemctl --user is-active --quiet picom.service || systemctl --user start picom.service"
+        "systemctl --user is-active --quiet polybar.service || systemctl --user start polybar.service"
         "pgrep -x sxhkd > /dev/null || sxhkd"
-        "solaar -w hide -b solaar"
         "notify-send 'Window Manager' 'Bspwm Startup finished' -i ~/.local/share/notify-icons/nixos.png"
       ];
 
