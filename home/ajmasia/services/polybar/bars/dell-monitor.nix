@@ -60,6 +60,6 @@ in
   tray-scale = 1.0
 
   # Modules
-  modules-left = power sep-3 date sep-2 workspaces
-  modules-right = temp sep-2 fs-root sep-2 fs-home sep-4 cpu-profile sep-2 wire sep-2 wifi
+  modules-left = power sep-3  workspaces
+  modules-right = cpu sep-2 mem temp sep-2 fs-root sep-2 fs-home sep-4 cpu-profile sep-2 wire sep-2 wifi sep-2 date sep-1
 ''

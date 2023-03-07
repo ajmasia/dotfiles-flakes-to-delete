@@ -10,7 +10,6 @@ in
   [module/${name}]
   type = ${type}
 
-  # write your config here
   # https://github.com/polybar/polybar/wiki
 
   # core
@@ -19,9 +18,6 @@ in
   hwmon-path = ''${env:HWMON_PATH}
   base-temperature = 20
   warn-temperature = 80
-
-
-  # content
 
   # label
   label = "%temperature-c%"
@@ -37,8 +33,6 @@ in
   # format
   format = <ramp><label>
   format-warn = <ramp><label-warn>
-
-  # icons
 
   # ramps
   ramp-0 = ▁
