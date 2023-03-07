@@ -3,15 +3,16 @@
 {
   services = {
     network-manager-applet = {
-      enable = true;
+      enable = false;
     };
 
+    # enable PulseAudio system tray
     pasystray = {
-      enable = true;
+      enable = false;
     };
 
     blueman-applet = {
-      enable = true;
+      enable = false;
     };
   };
 }

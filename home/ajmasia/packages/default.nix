@@ -92,6 +92,9 @@ with pkgs; [
   inkscape                # Vector graphics editor
   gimp                    # The GNU Image Manipulation Program
 
+  # Servers
+  synology-drive-client   # Desktop application to synchronize files and folders between the computer and the Synology Drive server
+
   # Tools
   etcher                  # Flash OS images to SD cards and USB drives, safely and easily
 

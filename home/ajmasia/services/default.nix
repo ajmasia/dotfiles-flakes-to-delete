@@ -8,4 +8,5 @@
   ./trayer
   ./polybar
   ./emacs
+  ./redshift
 ]

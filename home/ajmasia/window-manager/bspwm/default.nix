@@ -47,7 +47,9 @@ in
         "# Startup"
         "systemctl --user is-active --quiet picom.service || systemctl --user start picom.service"
         "systemctl --user is-active --quiet polybar.service || systemctl --user start polybar.service"
-        "pgrep -x sxhkd > /dev/null || sxhkd"
+        "pgrep 'sxhkd' >/dev/null || sxhkd"
+        "pgrep 'solaar' >/dev/null || solaar -w hide -b solaar"
+        "synology-drive"
         "notify-send 'Window Manager' 'Bspwm Startup finished' -i ~/.local/share/notify-icons/nixos.png"
       ];
 

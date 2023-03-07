@@ -23,6 +23,9 @@ let
 
   # modules
   modules = pkgs.callPackage ./modules { };
+
+  # scripts
+  pb_get-temp-path = pkgs.callPackage ./scripts/pb_get-temp-path.nix { };
 in
 with pkgs; {
   home = {
@@ -41,8 +44,7 @@ with pkgs; {
     extraConfig = modules + separators + dell-monitor + dell-external;
     script = ''
       # Startup script
-      # ${userConfigPath}/polybar/scripts/pb_startup
-      echo "polybar startup" >> ${config.xdg.configHome}/polybar/logs/dell-monitor.log &
+      ${pb_get-temp-path}/bin/pb_get-temp-path &>${config.xdg.configHome}/polybar/logs/dell-monitor.log &
       polybar dell-monitor 2>${config.xdg.configHome}/polybar/logs/dell-monitor.log &
       polybar dell-external 2>${config.xdg.configHome}/polybar/logs/dell-external.log &
     '';

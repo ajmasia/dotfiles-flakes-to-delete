@@ -8,6 +8,7 @@ let
   fs-root = pkgs.callPackage ./fs-root.nix { pkgs = pkgs; };
   power = pkgs.callPackage ./power.nix { pkgs = pkgs; };
   time = pkgs.callPackage ./time.nix { pkgs = pkgs; };
+  temp = pkgs.callPackage ./temp.nix { pkgs = pkgs; };
   wifi = pkgs.callPackage ./wifi.nix { pkgs = pkgs; };
   wire = pkgs.callPackage ./wire.nix { pkgs = pkgs; };
   workspaces = pkgs.callPackage ./workspaces.nix { pkgs = pkgs; };
@@ -21,6 +22,7 @@ builtins.concatStringsSep "" [
   fs-root
   power
   time
+  temp
   wifi
   wire
   workspaces

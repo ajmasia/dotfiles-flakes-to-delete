@@ -16,8 +16,8 @@ in
 
   # content
   content = 
-  content-foreground = ${colors.base.white}
-  content-font = 20
+  content-foreground = ${colors.base.nixos-secondary}
+  content-font = 7
 
 ''
 

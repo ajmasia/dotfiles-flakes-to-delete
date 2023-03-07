@@ -50,16 +50,16 @@ in
   foreground = ${colors.fg}
 
   # Tray
-  # tray-position = left
-  # tray-detached = true
-  # tray-offset-x = 340
-  # tray-offset-y = 0
-  # tray-background = ${colors.bg}
-  # tray-foreground = ${colors.fg}
-  # tray-maxsize = 22
-  # tray-scale = 1.0
+  tray-position = center
+  tray-detached = true
+  tray-offset-x = 0
+  tray-offset-y = 0
+  tray-background = ${colors.bg}
+  tray-foreground = ${colors.fg}
+  tray-maxsize = 22
+  tray-scale = 1.0
 
   # Modules
   modules-left = power sep-3 date sep-2 workspaces
-  modules-right = fs-root sep-2 fs-home sep-2 cpu-profile sep-2 wire sep-2 wifi
+  modules-right = temp sep-2 fs-root sep-2 fs-home sep-4 cpu-profile sep-2 wire sep-2 wifi
 ''
