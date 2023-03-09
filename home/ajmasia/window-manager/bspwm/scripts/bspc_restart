@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-bspc wm -r &
-
-pkill sxhkd
-
-systemctl --user stop polybar.service &
-
-notify-send 'Window Manager' 'Bspwm restart finished' -i "~/.local/share/notify-icons/nixos.png"

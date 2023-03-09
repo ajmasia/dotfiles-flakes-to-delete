@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 let
   userConfigPath = (import ../../global.nix).configHome;
@@ -44,19 +44,13 @@ in
       };
 
       startupPrograms = [
-        "# Startup"
-        "systemctl --user is-active --quiet picom.service || systemctl --user start picom.service"
-        "systemctl --user is-active --quiet polybar.service || systemctl --user start polybar.service"
-        "pgrep 'sxhkd' >/dev/null || sxhkd"
-        "pgrep 'solaar' >/dev/null || solaar -w hide -b solaar"
-        "synology-drive"
+        "sxhkd"
+        "xsetroot -cursor_name left_ptr"
+        "solaar -w hide -b solaar"
+        "sleep 2 && synology-drive"
+        "${userConfigPath}/bspwm/scripts/bspc_initialize-monitors"
         "notify-send 'Window Manager' 'Bspwm Startup finished' -i ~/.local/share/notify-icons/nixos.png"
       ];
-
-      extraConfig = ''
-        # Initialize monitors 2>${userConfigPath}/bspwm/startup.log
-        ${userConfigPath}/bspwm/scripts/bspc_initialize-monitors
-      '';
     };
   };
 }

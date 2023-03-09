@@ -5,6 +5,8 @@ let
   type = "internal/temperature";
 
   colors = pkgs.callPackage ../utils/colors.nix { };
+  hwmon = pkgs.callPackage ../scripts/pb_get-temp-path.nix { };
+  result = (hwmon/bin/pb_get-temp-path);
 in
 ''
   [module/${name}]
@@ -14,8 +16,8 @@ in
 
   # core
   interval = 0.5
-  thermal-zone = 0
-  hwmon-path = ''${env:HWMON_PATH}
+  thermal-zone = 1
+  hwmon-path = /sys/class/hwmon/hwmon1/temp1_input
   base-temperature = 20
   warn-temperature = 80
 

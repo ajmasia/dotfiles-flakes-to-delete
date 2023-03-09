@@ -24,6 +24,16 @@ in
   cursor-click  = pointer
   cursor-scroll = ns-resize
 
+  # Tray
+  tray-position = center
+  tray-detached = true
+  tray-offset-x = 0
+  tray-offset-y = 0
+  tray-background = ${colors.bg}
+  tray-foreground = ${colors.fg}
+  tray-maxsize = 22
+  tray-scale = 1.0
+
   # Position settings
   bottom = false
   fixed-center = true
@@ -49,17 +59,8 @@ in
   background = ${colors.bg}
   foreground = ${colors.fg}
 
-  # Tray
-  tray-position = center
-  tray-detached = true
-  tray-offset-x = 0
-  tray-offset-y = 0
-  tray-background = ${colors.bg}
-  tray-foreground = ${colors.fg}
-  tray-maxsize = 22
-  tray-scale = 1.0
 
   # Modules
   modules-left = power sep-3  workspaces
-  modules-right = cpu sep-2 mem temp sep-2 fs-root sep-2 fs-home sep-4 cpu-profile sep-2 wire sep-2 wifi sep-2 date sep-1
+  modules-right = cpu sep-2 mem sep-1 temp sep-2 fs-root sep-2 fs-home sep-4 cpu-profile sep-2 wire sep-2 wifi sep-2 date sep-1
 ''

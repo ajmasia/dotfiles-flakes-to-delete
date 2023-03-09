@@ -177,12 +177,26 @@ lvim.plugins = {
   { "jxnblk/vim-mdx-js" },
   { "nvim-treesitter/playground" },
   { "github/copilot.vim" },
-  -- {
+  --   {
   --   "zbirenbaum/copilot.lua",
-  --   event = { "VimEnter" },
+  --   -- event = { "VimEnter" },
   --   config = function()
-  --     require("copilot").setup {}
+  --     vim.defer_fn(function()
+  --       require("copilot").setup {
+  --         plugin_manager_path = os.getenv "LUNARVIM_RUNTIME_DIR" .. "/site/pack/packer",
+  --       }
+  --     end, 100)
   --   end,
   -- },
-  -- { "zbirenbaum/copilot-cmp", after = { "copilot.lua", "nvim-cmp" } },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   after = { "copilot.lua" },
+  --   config = function()
+  --     require("copilot_cmp").setup {
+  --       formatters = {
+  --         insert_text = require("copilot_cmp.format").remove_existing,
+  --       },
+  --     }
+  --   end,
+  -- },
 }

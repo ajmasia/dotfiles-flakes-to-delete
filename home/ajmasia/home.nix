@@ -14,7 +14,6 @@ with pkgs;
       variant = "altgr-intl";
     };
 
-    # User packages
     packages = (import ./packages) pkgs;
 
     #  User aaets
@@ -49,7 +48,7 @@ with pkgs;
   fonts.fontconfig.enable = true;
 
   programs.home-manager.enable = true;
-  
+
   imports = builtins.concatMap import [
     ./xdg
     ./window-manager

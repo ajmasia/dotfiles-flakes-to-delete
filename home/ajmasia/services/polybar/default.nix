@@ -43,8 +43,7 @@ with pkgs; {
     config = base-config;
     extraConfig = modules + separators + dell-monitor + dell-external;
     script = ''
-      # Startup script
-      ${pb_get-temp-path}/bin/pb_get-temp-path &>${config.xdg.configHome}/polybar/logs/dell-monitor.log &
+      ${pb_get-temp-path}/bin/pb_get-temp-path &
       polybar dell-monitor 2>${config.xdg.configHome}/polybar/logs/dell-monitor.log &
       polybar dell-external 2>${config.xdg.configHome}/polybar/logs/dell-external.log &
     '';

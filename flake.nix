@@ -26,7 +26,6 @@
     let
       system = "x86_64-linux";
       customModules = {
-        # Configuración de NixOS
         imports = [
           inputs.amd-controller.module
         ];

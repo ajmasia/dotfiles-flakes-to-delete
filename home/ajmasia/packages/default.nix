@@ -26,6 +26,7 @@ with pkgs; [
   geekbench               # Cross-platform benchmark
   # ajmasia-bin             # Personal scripts (see overlay)
   cava                    # Console-based Audio Visualizer for Alsa
+  pavucontrol             # PulseAudio Volume Control
 
   # CLIs
   telegram-cli            # Command-line interface for Telegram
@@ -71,6 +72,7 @@ with pkgs; [
 
   # Language Servers (LSPs)
   # haskell-language-server
+  sumneko-lua-language-server 
 
   # Security
   bitwarden               # A secure and free password manager for all of your devices

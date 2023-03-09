@@ -48,6 +48,9 @@ lvim.builtin.which_key.mappings["l"]["f"] = {
 	"Format",
 }
 
+lvim.builtin.which_key.mappings["l"]["c"] = { "<cmd>lua require('copilot.suggestion').toggle_auto_trigger()<cr>", "Get Capabilities" }
+
+
 lvim.builtin.which_key.mappings["."]  = {
   name = "Terminal",
   t = {"<cmd>ToggleTerm<cr>", "Toggle term" }

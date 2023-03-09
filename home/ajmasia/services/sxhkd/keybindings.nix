@@ -1,11 +1,13 @@
-{...}:
+{ pkgs, ... }:
 
 let
   userConfigPath = (import ../../global.nix).configHome;
+  bspc_restart = pkgs.callPackage ../../window-manager/bspwm/scripts/bspc_restart.nix { };
+  bspc_terminal-scrachpad = pkgs.callPackage ../../window-manager/bspwm/scripts/bspc_terminal-scrachpad.nix { };
 in
 {
   # Window manager control bspc wm -r &
-  "super + alt + {q,r}" = "{bspc quit, ${userConfigPath}/bspwm/scripts/bspc_restart}";
+  "super + alt + {q,r}" = "{bspc quit, ${bspc_restart}/bin/bspc_restart}";
   "super + Escape" = "pkill -USR1 -x sxhkd";
 
   # App launchers
@@ -19,7 +21,7 @@ in
   # "super + shift + p" = "set-cpu-profile";
 
   # Scrachpads
-  "super + shift + t" = "${userConfigPath}/bspwm/scripts/bspc_terminal-scrachpad";
+  "super + shift + t" = "${bspc_terminal-scrachpad}/bin/bspc_terminal-scrachpad";
 
   # Windows management
   "super + {_,shift + }w" = "bspc node -{c,k}";
