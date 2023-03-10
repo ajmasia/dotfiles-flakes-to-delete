@@ -1,7 +1,7 @@
 { pkgs, config, ... }:
 let
   wallpaper = (import ../../global.nix).wallpaper;
-  restart = pkgs.callPackage ../../window-manager/bspwm/scripts/bspc_restart.nix { };
+  gb_check-startup = pkgs.callPackage ./scripts/gb_check-startup.nix { };
 in
 {
   services.grobi = {
@@ -49,7 +49,8 @@ in
     executeAfter = [
       # TODO: Pending to mange startup process
       # "${restart}/bin/bspc_restart"
-      "${pkgs.libnotify}/bin/notify-send 'Monitors config has changed'"
+      "${gb_check-startup}/bin/gb_check-startup"
+      # "${pkgs.libnotify}/bin/notify-send 'Monitors config has changed'"
     ];
   };
 }

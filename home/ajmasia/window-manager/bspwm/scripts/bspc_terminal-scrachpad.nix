@@ -3,22 +3,23 @@ let
   userConfigPath = (import ../../../global.nix).configHome;
 
   xdotool = "${pkgs.xdotool}/bin/xdotool";
-  xdo = "${pkgs.xdotool}/bin/xdo";
+  xdo = "${pkgs.xdo}/bin/xdo";
   bspc = "${pkgs.bspwm}/bin/bspc";
   alacritty = "${pkgs.alacritty}/bin/alacritty";
   touch = "${pkgs.coreutils}/bin/touch";
+  rm = "${pkgs.coreutils}/bin/rm";
 in
 pkgs.writeShellScriptBin "bspc_terminal-scrachpad" ''
-  winclass="$(${xdotool} search --class terminal-scpad)";
-  tmp=${userConfigPath}/terminal-scpad
+  WINCLASS="$(${xdotool} search --class terminal-scpad)";
+  FLAG=${userConfigPath}/terminal-scpad
 
-  if [ -z "$winclass" ]; then
+  if [ -z "$WINCLASS" ]; then
       ${alacritty} --class terminal-scpad
   else
-      if [ ! -f $tmp ]; then
-          ${touch} $tmp && ${xdo} hide "$winclass"
-      elif [ -f $tmp ]; then
-          ""
+      if [ ! -f $FLAG ]; then
+          ${touch} $FLAG && ${xdo} hide "$WINCLASS"
+      elif [ -f $FLAG ]; then
+          ${rm} $FLAG && ${xdo} show "$WINCLASS"
       fi
   fi
 ''

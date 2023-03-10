@@ -14,10 +14,7 @@
     };
 
     amd-controller = {
-      type = "github";
-      owner = "ajmasia";
-      repo = "amd-controller";
-      ref = "implement_multi_processor-config";
+      url = "github:ajmasia/amd-controller";
     };
   };
 

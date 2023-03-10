@@ -5,16 +5,15 @@
         "nixpkgs": "nixpkgs"
       },
       "locked": {
-        "lastModified": 1678207889,
-        "narHash": "sha256-MO7cE+kDZdReuC3XOfxIzn+EevQ1DpVIRIcg/sbU//s=",
+        "lastModified": 1678452425,
+        "narHash": "sha256-TzT5ULY0g4Dunzw+V+6WcbMiMAYphK90a0CFoz0Klmc=",
         "owner": "ajmasia",
         "repo": "amd-controller",
-        "rev": "3c8288e4bbf9b140588c51a47cb646042d0a4d08",
+        "rev": "d70b939d6bfb309a6d0036f0bece7c968da41176",
         "type": "github"
       },
       "original": {
         "owner": "ajmasia",
-        "ref": "implement_multi_processor-config",
         "repo": "amd-controller",
         "type": "github"
       }
