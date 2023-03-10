@@ -49,8 +49,8 @@ in
     executeAfter = [
       # TODO: Pending to mange startup process
       # "${restart}/bin/bspc_restart"
-      "${gb_check-startup}/bin/gb_check-startup"
-      # "${pkgs.libnotify}/bin/notify-send 'Monitors config has changed'"
+      # "${gb_check-startup}/bin/gb_check-startup"
+      "${pkgs.libnotify}/bin/notify-send 'Monitors config has changed'"
     ];
   };
 }
