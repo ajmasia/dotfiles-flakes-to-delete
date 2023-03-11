@@ -2,6 +2,9 @@
 
 let
   userConfigPath = (import ../../global.nix).configHome;
+  wallpaper = (import ../../global.nix).wallpaper;
+  primaryMonitor = "HDMI-A-0";
+  secondaryMonitor = "DisplayPort-1";
 in
 {
   home = {
@@ -44,13 +47,11 @@ in
       };
 
       startupPrograms = [
+        "${userConfigPath}/bspwm/scripts/bspc_initialize-monitors"
         "sxhkd"
         "xsetroot -cursor_name left_ptr"
         "solaar -w hide -b solaar"
         "sleep 2 && synology-drive"
-        "${userConfigPath}/bspwm/scripts/bspc_initialize-monitors"
-        # "polybar dell-monitor 2>${userConfigPath}/polybar/logs/dell-monitor.log"
-        # "polybar dell-external 2>${userConfigPath}/polybar/logs/dell-external.log"
         "notify-send 'Window Manager' 'Bspwm Startup finished' -i ~/.local/share/notify-icons/nixos.png"
       ];
     };

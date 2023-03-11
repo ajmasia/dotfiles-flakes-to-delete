@@ -45,6 +45,7 @@ in
     yellow = palette.amber.amshade6;
     nixos-primary = "#4C6DB3";
     nixos-secondary = "#7AACD7";
+    docker = "#2497ED";
 
   };
 }

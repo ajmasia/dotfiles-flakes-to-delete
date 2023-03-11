@@ -17,7 +17,7 @@
   font-13 = "Font Awesome 5 Free Solid:pixelsize=14;3"
   font-14 = "Font Awesome 5 Brands:pixelsize=12;2"
   font-15 = "Font Awesome 5 Brands:pixelsize=13;3"
-  font-16 = "Font Awesome 5 Brands:pixelsize=14;3"
+  font-16 = "Font Awesome 6 Brands:pixelsize=14;3"
   font-17 = "Ubuntu Nerd Font:weight=bold:size=12;3"
   font-18 = "Ubuntu Nerd Font:style=Medium:size=12;3"
   font-19 = "FiraCode Nerd Font:style=Medium:size=18;3"

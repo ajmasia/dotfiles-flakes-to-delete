@@ -4,6 +4,7 @@ let
   userConfigPath = (import ../../global.nix).configHome;
   bspc_restart = pkgs.callPackage ../../window-manager/bspwm/scripts/bspc_restart.nix { };
   bspc_terminal-scrachpad = pkgs.callPackage ../../window-manager/bspwm/scripts/bspc_terminal-scrachpad.nix { };
+  pb_toggle = pkgs.callPackage ../polybar/scripts/pb_toggle.nix { }; 
 in
 {
   # Window manager control bspc wm -r &
@@ -19,6 +20,7 @@ in
   "super + shift + f" = "flameshot gui";
   # "super + shift + l" = "set-slack-status";
   # "super + shift + p" = "set-cpu-profile";
+  "super + shift + p" = "${pb_toggle}/bin/pb_toggle";
 
   # Scrachpads
   "super + shift + t" = "${bspc_terminal-scrachpad}/bin/bspc_terminal-scrachpad";

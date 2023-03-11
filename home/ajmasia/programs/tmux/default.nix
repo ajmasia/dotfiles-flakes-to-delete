@@ -1,7 +1,8 @@
-{pkgs, ...}:
+{ pkgs, ... }:
 
 let
   tmuxConf = builtins.readFile ./default.conf;
+  plugins = pkgs.tmuxPlugins;
 in
 {
   programs.tmux = {
@@ -14,5 +15,13 @@ in
     keyMode = "vi";
     shortcut = "x";
     terminal = "screen-256color";
+
+    plugins = with plugins; [
+      {
+        plugin = dracula;
+        extraConfig = ''
+        '';
+      }
+    ];
   };
 }
