@@ -49,6 +49,8 @@ in
         "solaar -w hide -b solaar"
         "sleep 2 && synology-drive"
         "${userConfigPath}/bspwm/scripts/bspc_initialize-monitors"
+        # "polybar dell-monitor 2>${userConfigPath}/polybar/logs/dell-monitor.log"
+        # "polybar dell-external 2>${userConfigPath}/polybar/logs/dell-external.log"
         "notify-send 'Window Manager' 'Bspwm Startup finished' -i ~/.local/share/notify-icons/nixos.png"
       ];
     };

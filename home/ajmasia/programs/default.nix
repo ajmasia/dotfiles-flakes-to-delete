@@ -11,4 +11,5 @@
   ./xmobar
   ./emacs
   ./kitty
+  ./tmux
 ]

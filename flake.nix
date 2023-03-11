@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-22.11";
+    unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
 
     home-manager = {
       url = "github:nix-community/home-manager/release-22.11";
@@ -14,7 +15,10 @@
     };
 
     amd-controller = {
-      url = "github:ajmasia/amd-controller";
+      type = "github";
+      owner = "ajmasia";
+      repo = "amd-controller";
+      ref = "rolling";
     };
   };
 

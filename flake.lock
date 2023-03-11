@@ -14,6 +14,7 @@
       },
       "original": {
         "owner": "ajmasia",
+        "ref": "rolling",
         "repo": "amd-controller",
         "type": "github"
       }
@@ -140,7 +141,24 @@
         "amd-controller": "amd-controller",
         "bazecor-nix": "bazecor-nix",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs_3"
+        "nixpkgs": "nixpkgs_3",
+        "unstable": "unstable"
+      }
+    },
+    "unstable": {
+      "locked": {
+        "lastModified": 1678470307,
+        "narHash": "sha256-OEeMUr3ueLIXyW/OaFUX5jUdimyQwMg/7e+/Q0gC/QE=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "0c4800d579af4ed98ecc47d464a5e7b0870c4b1f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "utils": {

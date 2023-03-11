@@ -28,7 +28,11 @@ require("lvim.lsp.manager").setup("emmet_ls", {
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "black", filetypes = { "python" } },
+  {
+    command = "black",
+    args = { '--line-length', "79" },
+    filetypes = { "python" },
+  },
   { command = "stylua", filetypes = { "lua" } },
   { command = "shfmt" },
   {
@@ -41,7 +45,12 @@ formatters.setup {
 -- -- set additional linters
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-  { command = "flake8", filetypes = { "python" } },
+  { command = "flake8",
+    args = {
+      "--severity", "warning",
+      "--max-line-length", "79"
+    },
+    filetypes = { "python" } },
   {
     command = "eslint_d",
     filetypes = {
@@ -60,5 +69,3 @@ linters.setup {
 
 -- lvim.lsp.float.border = "none"
 -- lvim.lsp.diagnostics.float.border = "none"
-
-

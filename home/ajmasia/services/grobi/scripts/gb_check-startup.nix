@@ -8,10 +8,10 @@ let
   bspc_restart = pkgs.callPackage ../../../window-manager/bspwm/scripts/bspc_restart.nix { };
 in
 pkgs.writeShellScriptBin "gb_check-startup" ''
-  FLAG=${userConfigPath}/logged
+  FLAG=/etc/logged
 
   if [ ! -f $FLAG ]; then
-      ${touch} $FLAG
+      ${echo} "user first | restarting wm don't needed" >> ${userConfigPath}/log.log
   elif [ -f $FLAG ]; then
     ${echo} "restarting" >> ${userConfigPath}/log.log
     ${bspc_restart}/bin/bspc_restart

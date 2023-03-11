@@ -20,6 +20,8 @@ in
 
     historyIgnore = [ "ls" "cd" "exit" ];
     shellOptions = [ "histappend" "checkwinsize" "extglob" "globstar" "checkjobs" "autocd" ];
+
+    shellAliases = import ./alias;
   };
 
 }
