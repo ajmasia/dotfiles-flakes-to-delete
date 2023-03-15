@@ -29,7 +29,7 @@ in
   tray-detached = true
   tray-offset-x = -870
   tray-offset-y = 0
-  tray-background = ${colors.bg}
+  # tray-background = ${colors.bg}
   tray-foreground = ${colors.fg}
   tray-maxsize = 22
   tray-scale = 1.0

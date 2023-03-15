@@ -11,7 +11,7 @@ let
   };
 
   # Main config
-  base-config = import ./config.nix;
+  base-config = pkgs.callPackage ./config.nix { };
 
   # bars
   dell-monitor = pkgs.callPackage ./bars/dell-monitor.nix { pkgs = pkgs; };
@@ -25,26 +25,35 @@ let
   modules = pkgs.callPackage ./modules { };
 
   # scripts
-  pb_get-temp-path = pkgs.callPackage ./scripts/pb_get-temp-path.nix { };
+  # pb_get-temp-path = pkgs.callPackage ./scripts/pb_get-temp-path.nix { };
 in
 with pkgs; {
   home = {
-    packages = [ ];
-
-    # file = {
-    #   ".config/polybar/scripts".source = ./scripts;
-    # };
+    packages = [ custom-polybar-package ];
   };
 
-  services.polybar = {
-    enable = true;
-
-    package = custom-polybar-package;
-    config = base-config;
-    extraConfig = modules + separators + dell-monitor + dell-external;
-    script = ''
-      polybar dell-monitor 2>${config.xdg.configHome}/polybar/logs/dell-monitor.log &
-      polybar dell-external 2>${config.xdg.configHome}/polybar/logs/dell-external.log &
+  xdg = {
+    configFile."polybar/config.ini".source = writeText "polybar.conf" ''
+      ${base-config}
+      ${modules}
+      ${separators}
+      ${dell-monitor}
+      ${dell-external}
     '';
   };
+
+  # services.polybar = {
+  #   enable = true;
+
+  #   package = custom-polybar-package;
+  #   config = base-config;
+  #   extraConfig = modules + separators + dell-monitor + dell-external;
+  #   script = ''
+  #     polybar dell-monitor 2>${config.xdg.configHome}/polybar/logs/dell-monitor.log &
+  #     polybar dell-external 2>${config.xdg.configHome}/polybar/logs/dell-external.log &
+  #   '';
+  # };
 }
+
+
+

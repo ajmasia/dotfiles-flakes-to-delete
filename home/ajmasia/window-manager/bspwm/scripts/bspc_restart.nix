@@ -7,7 +7,7 @@ let
   bspc = "${pkgs.bspwm}/bin/bspc";
 in
 pkgs.writeShellScriptBin "bspc_restart" ''
-  ${pkill} sxhxd
+  ${pkill} polybar
   ${pkill} solaar
   ${pkill} -f cloud-drive-con 
   ${pkill} -f cloud-drive*

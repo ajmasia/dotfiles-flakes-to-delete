@@ -98,6 +98,18 @@
     rtkit = {
       enable = true;
     };
+
+    # tpm2 = {
+    #   enable = true;
+
+    #   pkcs11 = {
+    #     enable = true;
+    #   };
+
+    #   tctiEnvironment = {
+    #     enable = true;
+    #   };
+    # };
   };
 
 
@@ -267,7 +279,8 @@
     users.ajmasia = {
       isNormalUser = true;
       description = "ajmasia";
-      extraGroups = [ "networkmanager" "wheel" "docker" "input" "audio" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "input" "audio"];
+      # extraGroups = [ "networkmanager" "wheel" "docker" "input" "audio" "tss"];
     };
 
     # extraGroups = {
