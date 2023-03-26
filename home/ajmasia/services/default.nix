@@ -9,4 +9,7 @@
   ./polybar
   ./emacs
   ./redshift
+  ./xscreensaver
+  ./flameshot
+  ./syncthing
 ]

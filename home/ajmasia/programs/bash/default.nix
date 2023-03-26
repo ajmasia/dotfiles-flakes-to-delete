@@ -1,11 +1,12 @@
-{ ... }:
+{ pkgs,... }:
 
 let
   initExtraConfig = ''
     # Init extra config
     export PATH="$HOME/.local/bin:$PATH"
-    PATH=~/.emacs.d/bin:$PATH
-  '';
+    export HISTCONTROL=ignoreboth:erasedups
+    # PATH=~/.emacs.d/bin:$PATH
+  '' + (builtins.readFile ./functions.bash);
 
   profileExtraConfig = ''
     # Profile extra config

@@ -1,9 +1,9 @@
 [
-  ./core
   ./bash
+  ./starship
+  ./core
   ./git
   ./alacritty
-  ./starship
   ./vim
   ./neovim
   ./rofi
@@ -12,4 +12,5 @@
   ./emacs
   ./kitty
   ./tmux
+  ./fzf
 ]

@@ -1,8 +1,14 @@
+let
+  excludedFiles = [ "amd-controller" ];
+
+  filterExcludedFiles = path: type:
+    !(builtins.elem (baseNameOf path) excludedFiles);
+in
 self: super: {
   ajmasia-bin = super.stdenv.mkDerivation {
     name = "ajmasia-binaries";
 
-    src = ../bin;
+    src = builtins.filterSource filterExcludedFiles ../bin;
 
     dontPatchShebangs = true;
 
@@ -10,6 +16,5 @@ self: super: {
       mkdir -p $out/bin
       mv * $out/bin
     '';
-
   };
 }

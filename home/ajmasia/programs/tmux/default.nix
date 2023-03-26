@@ -8,7 +8,6 @@ in
   programs.tmux = {
     enable = true;
 
-    aggressiveResize = true;
     baseIndex = 1;
     extraConfig = tmuxConf;
     escapeTime = 0;
@@ -17,11 +16,11 @@ in
     terminal = "screen-256color";
 
     plugins = with plugins; [
-      {
-        plugin = dracula;
-        extraConfig = ''
-        '';
-      }
+      # {
+      #   plugin = dracula;
+      #   extraConfig = ''
+      #   '';
+      # }
     ];
   };
 }

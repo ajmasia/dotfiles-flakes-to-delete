@@ -14,7 +14,7 @@ with pkgs;
       variant = "altgr-intl";
     };
 
-    packages = (import ./packages) pkgs;
+    packages = (import ./packages { pkgs = pkgs; inputs = inputs; });
 
     #  User aaets
     file = (import ./file) { };
@@ -40,7 +40,7 @@ with pkgs;
     };
 
     overlays = [
-      # (import ./overlays/bin.nix)
+      (import ./overlays/bin.nix)
       (f: p: { amd-controller = inputs.amd-controller.packages.x86_64-linux.default; })
     ];
   };

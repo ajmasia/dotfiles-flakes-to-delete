@@ -4,7 +4,6 @@ let
   name = "cpu-profile";
   type = "custom/script";
 
-  colors = pkgs.callPackage ../utils/colors.nix { };
   script = pkgs.callPackage ../scripts/pb_get_cpu_profile.nix { };
 in
 ''

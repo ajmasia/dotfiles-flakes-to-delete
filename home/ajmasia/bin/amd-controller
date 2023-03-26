@@ -29,6 +29,7 @@ HIGH_WITH_AC="--tctl-temp=95 --slow-limit=25000 --stapm-limit=30000 --fast-limit
 help() {
 	printf "${YELLOW}Slimbook ${CPU} profile updater tool${COLOR_OFF}\n\n"
 	printf "${GREEN}Usage amd-controller [command <option>] [option]${COLOR_OFF}\n\n"
+  printf "From ajmasia bin"
 
 	printf "${YELLOW}Commands:${COLOR_OFF}\n"
 	echo "set <option>       Set processor profile"

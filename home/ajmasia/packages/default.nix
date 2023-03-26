@@ -1,7 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 
 let
-  unstablePackages = import <unstable> { };
+  unstable = import inputs.unstable {
+    system = pkgs.system;
+  };
   yarnWithNode16 = pkgs.yarn.overrideAttrs (oldAttrs: rec {
     buildInputs = with pkgs; [
       nodejs-16_x
@@ -24,7 +26,7 @@ with pkgs; [
   lm_sensors # Tools for reading hardware sensors
   tldr # Simplified and community-driven man pages
   geekbench # Cross-platform benchmark
-  # ajmasia-bin             # Personal scripts (see overlay)
+  ajmasia-bin # Personal scripts (see overlay)
   cava # Console-based Audio Visualizer for Alsa
   pavucontrol # PulseAudio Volume Control
 
@@ -86,6 +88,9 @@ with pkgs; [
   tdesktop # Telegram Desktop messaging app
   slack # Desktop client for Slack
   discord # All-in-one cross-platform voice and text chat for gamers
+  element-desktop # A secure, decentralized, open source communication platform
+  # unstable.protonmail-bridge # A tool to access ProtonMail via IMAP and SMTP
+  thunderbird # A free and open-source cross-platform email client
 
   # Multimedia
   spotify # Play music from the Spotify music service

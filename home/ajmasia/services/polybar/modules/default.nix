@@ -11,6 +11,7 @@ let
   fs-root = pkgs.callPackage ./fs-root.nix { pkgs = pkgs; };
   mem = pkgs.callPackage ./memory.nix { pkgs = pkgs; };
   power = pkgs.callPackage ./power.nix { pkgs = pkgs; };
+  sync = pkgs.callPackage ./syncthing.nix { pkgs = pkgs; };
   temp = pkgs.callPackage ./temp.nix { pkgs = pkgs; };
   time = pkgs.callPackage ./time.nix { pkgs = pkgs; };
   wifi = pkgs.callPackage ./wifi.nix { pkgs = pkgs; };
@@ -28,6 +29,7 @@ builtins.concatStringsSep "" [
   fs-root
   mem
   power
+  sync
   temp
   time
   wifi
