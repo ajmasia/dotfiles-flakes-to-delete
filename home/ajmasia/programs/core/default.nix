@@ -40,6 +40,13 @@
         sort_key = "PERCENT_CPU";
       };
     };
+
+    zathura = {
+      enable = true;
+      extraConfig = ''
+        set selection-clipboard clipboard
+      '';
+    };
   };
 }
 

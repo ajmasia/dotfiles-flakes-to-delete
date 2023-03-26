@@ -5,9 +5,9 @@ in
   # Desktop entries
   "com.yubico.authenticator" = {
     comment = "Yubico Authenticator app";
-    exec = "authenticator";
+    exec = "yubioath-flutter";
     genericName = "Yubico Authenticator";
-    icon = homeDirectory + "/.nix-profile/app/linux_support/com.yubico.yubioath.png";
+    icon = homeDirectory + "/.nix-profile/share/icons/com.yubico.yubioath.png";
     name = "Yubico Authenticator";
     terminal = false;
     type = "Application";

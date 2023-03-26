@@ -8,7 +8,7 @@ in
     enable = true;
 
     desktopEntries = import ../desktop;
-    # TODO: import mime config
+    mimeApps = import ../mime;
 
     configFile = {
       "ranger" = {

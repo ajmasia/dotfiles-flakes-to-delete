@@ -6,7 +6,12 @@ import ./commons.nix //
   # directories
   # gmo = "cd ~/projects/genially/mono && gsh shell";
   # gdb = "cd ~/projects/genially/dev-databases && gsh shell";
-  doc = "cd ~/synologyDrive";
+  sd = "cd ~/synologyDrive";
+  sc = "cd ~/syncthing";
+  scsh = "cd ~/syncthing_shared";
+  dw = "cd ~/syncthing_shared/download";
+  pr = "cd ~/projects";
+  rp = "cd ~/repos";
 
   # vpn
   # gdev-vpn = "sudo openvpn ~/.config/vpn/genially_dev.ovpn";
