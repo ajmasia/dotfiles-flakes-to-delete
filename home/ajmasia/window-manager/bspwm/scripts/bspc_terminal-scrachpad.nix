@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
-let
 
+let
   xdotool = "${pkgs.xdotool}/bin/xdotool";
   xdo = "${pkgs.xdo}/bin/xdo";
   bspc = "${pkgs.bspwm}/bin/bspc";

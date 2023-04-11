@@ -6,7 +6,8 @@ import ./commons.nix //
   # directories
   # gmo = "cd ~/projects/genially/mono && gsh shell";
   # gdb = "cd ~/projects/genially/dev-databases && gsh shell";
-  sd = "cd ~/synologyDrive";
+  sd = "cd ~/synology_drive";
+  st = "cd ~/synology_team";
   sc = "cd ~/syncthing";
   scsh = "cd ~/syncthing_shared";
   dw = "cd ~/syncthing_shared/download";

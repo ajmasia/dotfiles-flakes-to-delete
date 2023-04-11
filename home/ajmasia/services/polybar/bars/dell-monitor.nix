@@ -61,5 +61,5 @@ in
 
   # Modules
   modules-left = power sep-3 workspaces sep-3 docker
-  modules-right = cpu sep-2 mem sep-1 temp sep-2 fs-root sep-2 fs-home sep-4 sync sep-2 cpu-profile sep-2 wire sep-2 wifi sep-2 date sep-1
+  modules-right = cpu sep-2 mem sep-1 temp sep-2 fs-root sep-2 fs-home sep-4 sep-2 cpu-profile sep-2 wire sep-2 wifi sep-2 date sep-1
 ''

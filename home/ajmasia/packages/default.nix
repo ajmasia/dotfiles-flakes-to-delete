@@ -99,6 +99,9 @@ with pkgs; [
   inkscape # Vector graphics editor
   gimp # The GNU Image Manipulation Program
 
+  # Reading
+  unstable.calibre # E-book management application
+
   # Servers
   synology-drive-client # Desktop application to synchronize files and folders between the computer and the Synology Drive server
 

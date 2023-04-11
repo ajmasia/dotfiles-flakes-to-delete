@@ -39,7 +39,7 @@ in
 
   # bars
   bar-used-indicator =
-  bar-used-width = 32
+  bar-used-width = 16
   bar-used-foreground-0 = ${colors.base.green}
   bar-used-foreground-1 = ${colors.base.yellow}
   bar-used-foreground-2 = ${colors.base.orange}

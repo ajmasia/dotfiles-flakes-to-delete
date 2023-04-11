@@ -146,7 +146,7 @@ lvim.plugins = {
     "epwalsh/obsidian.nvim",
     config = function()
       require("obsidian").setup {
-        dir = "~/syncthing_shared/brain",
+        dir = "~/synology_shared/obsidian/brain",
         use_advanced_uri = true,
         daily_notes = {
           folder = "dailies",
