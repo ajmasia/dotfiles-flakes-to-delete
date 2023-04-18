@@ -150,6 +150,10 @@
         plasma5 = {
           enable = false;
         };
+
+        gnome = {
+          enable = false;
+        };
       };
 
       layout = "us";
