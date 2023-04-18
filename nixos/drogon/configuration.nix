@@ -133,12 +133,22 @@
           };
         };
 
-        defaultSession = "none+bspwm";
+        sddm = {
+          enable = false;
+        };
+
+        # defaultSession = "none+bspwm";
       };
 
       windowManager = {
         bspwm = {
           enable = true;
+        };
+      };
+
+      desktopManager = {
+        plasma5 = {
+          enable = false;
         };
       };
 
@@ -279,7 +289,7 @@
     users.ajmasia = {
       isNormalUser = true;
       description = "ajmasia";
-      extraGroups = [ "networkmanager" "wheel" "docker" "input" "audio"];
+      extraGroups = [ "networkmanager" "wheel" "docker" "input" "audio" ];
       # extraGroups = [ "networkmanager" "wheel" "docker" "input" "audio" "tss"];
     };
 

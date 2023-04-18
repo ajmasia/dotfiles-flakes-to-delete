@@ -116,5 +116,11 @@ with pkgs; [
 
   # Testing
   amd-controller
+
+  # Site generators
+  hugo # A fast and modern static website engine written in Go
+
+  # Development languages
+  go # The Go programming language
 ]
 

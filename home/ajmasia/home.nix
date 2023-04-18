@@ -3,6 +3,10 @@
 let
   username = (import ./global.nix).userName;
   homeDirectory = (import ./global.nix).homeDirectory;
+
+  unstable = import inputs.unstable {
+    system = pkgs.system;
+  };
 in
 with pkgs;
 {
@@ -37,6 +41,12 @@ with pkgs;
       permittedInsecurePackages = [
         "electron-12.2.3"
       ];
+
+      unstable = {
+        config = {
+          allowUnfree = true;
+        };
+      };
     };
 
     overlays = [
@@ -44,6 +54,7 @@ with pkgs;
       (f: p: { amd-controller = inputs.amd-controller.packages.x86_64-linux.default; })
     ];
   };
+
 
   fonts.fontconfig.enable = true;
 
