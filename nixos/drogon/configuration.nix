@@ -31,7 +31,7 @@
     };
 
     plymouth = {
-      enable = false;
+      enable = true;
     };
   };
 
